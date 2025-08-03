@@ -15,7 +15,7 @@ class PatientResourceSeeder extends Seeder
         $resources = [
             [
                 'title' => 'Patient Forms',
-                'content' => '<h2>New Patient Forms</h2><p>Please complete these forms before your first visit to help us provide you with the best care possible.</p><ul><li>Patient Registration Form</li><li>Medical History Form</li><li>Insurance Information Form</li><li>HIPAA Consent Form</li></ul>',
+                'content' => '<h2>New Patient Forms</h2><p>Please complete these forms before your first visit to help us provide you with the best care possible. This helps us understand your medical history and current health status.</p><h3>Required Forms</h3><ul><li><strong>Patient Registration Form</strong> - Basic contact and demographic information</li><li><strong>Medical History Form</strong> - Complete medical history and current medications</li><li><strong>Insurance Information Form</strong> - Insurance details and policy information</li><li><strong>HIPAA Consent Form</strong> - Privacy and information sharing preferences</li></ul><blockquote><p><em>Note: Please bring a photo ID and your insurance card to your first appointment. If you have any questions about these forms, please call our office.</em></p></blockquote>',
                 'resource_type' => 'page',
                 'slug' => 'patient-forms',
                 'sort_order' => 1,
@@ -23,7 +23,7 @@ class PatientResourceSeeder extends Seeder
             ],
             [
                 'title' => 'Insurance & Fees',
-                'content' => '<h2>Insurance Information</h2><p>We accept most major insurance plans. Please contact our office to verify your coverage before your appointment.</p><h3>Accepted Insurance Plans</h3><ul><li>Blue Cross Blue Shield</li><li>Aetna</li><li>Cigna</li><li>UnitedHealthcare</li><li>Medicare</li><li>Medicaid</li></ul><h3>Self-Pay Options</h3><p>We offer competitive self-pay rates for patients without insurance. Please call our office for current pricing information.</p>',
+                'content' => '<h2>Insurance Information</h2><p>We accept most major insurance plans. Please contact our office to verify your coverage before your appointment. Understanding your insurance benefits helps avoid unexpected costs.</p><h3>Accepted Insurance Plans</h3><ul><li><strong>Blue Cross Blue Shield</strong> - All major BCBS plans</li><li><strong>Aetna</strong> - Commercial and Medicare Advantage plans</li><li><strong>Cigna</strong> - Individual and group plans</li><li><strong>UnitedHealthcare</strong> - Commercial and Medicare plans</li><li><strong>Medicare</strong> - Original Medicare and Medicare Advantage</li><li><strong>Medicaid</strong> - State Medicaid programs</li></ul><h3>Self-Pay Options</h3><p>We offer competitive self-pay rates for patients without insurance. Our transparent pricing ensures you know the cost upfront.</p><blockquote><p><em>Important: Insurance coverage can change throughout the year. We recommend verifying your benefits before each visit, especially if you\'ve recently changed plans or employers.</em></p></blockquote><h4>Payment Options</h4><ul><li>Cash, check, or credit card</li><li>Payment plans available for larger balances</li><li>Online payment portal coming soon</li></ul>',
                 'resource_type' => 'page',
                 'slug' => 'insurance-fees',
                 'sort_order' => 2,

@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
             ProviderSeeder::class,
             ServiceSeeder::class,
             PatientResourceSeeder::class,
+            FAQSeeder::class,
             SettingsSeeder::class,
         ]);
     }

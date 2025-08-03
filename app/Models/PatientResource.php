@@ -10,6 +10,8 @@ class PatientResource extends Model
 {
     use HasFactory;
 
+    protected $table = 'patient_resources';
+
     protected $fillable = [
         'title',
         'content',

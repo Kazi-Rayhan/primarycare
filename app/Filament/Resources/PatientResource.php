@@ -3,7 +3,7 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\PatientResource\Pages;
-use App\Models\PatientResource;
+use App\Models\PatientResource as PatientResourceModel;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -12,15 +12,17 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class PatientResourceResource extends Resource
+class PatientResource extends Resource
 {
-    protected static ?string $model = PatientResource::class;
+    protected static ?string $model = PatientResourceModel::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-document-text';
 
     protected static ?string $navigationGroup = 'Clinic Management';
 
     protected static ?int $navigationSort = 3;
+
+    protected static ?string $slug = 'patient-resources';
 
     public static function form(Form $form): Form
     {
@@ -59,12 +61,20 @@ class PatientResourceResource extends Resource
                             ->toolbarButtons([
                                 'bold',
                                 'italic',
+                                'underline',
+                                'strike',
                                 'link',
                                 'bulletList',
                                 'orderedList',
+                                'h1',
                                 'h2',
                                 'h3',
+                                'h4',
+                                'blockquote',
+                                'codeBlock',
+                                'clean',
                             ])
+                            ->extraInputAttributes(['class' => 'rich-content-editor'])
                             ->visible(fn (Forms\Get $get): bool => $get('resource_type') === 'page'),
                         
                         Forms\Components\FileUpload::make('file_path')
@@ -106,20 +116,23 @@ class PatientResourceResource extends Resource
                     ->searchable()
                     ->sortable(),
                 
-                Tables\Columns\BadgeColumn::make('resource_type')
+                Tables\Columns\TextColumn::make('resource_type')
                     ->label('Type')
-                    ->colors([
-                        'primary' => 'page',
-                        'success' => 'form',
-                        'warning' => 'link',
+                    ->badge()
+                    ->color(fn (string $state): string => match ($state) {
+                        'page' => 'primary',
+                        'form' => 'success',
+                        'link' => 'warning',
                         'info' => 'info',
-                    ]),
+                        default => 'gray',
+                    }),
                 
                 Tables\Columns\TextColumn::make('content')
                     ->label('Content')
                     ->limit(100)
                     ->html()
-                    ->visible(fn (): bool => true),
+                    ->visible(fn (): bool => true)
+                    ->toggleable(),
                 
                 Tables\Columns\IconColumn::make('file_path')
                     ->label('File')
