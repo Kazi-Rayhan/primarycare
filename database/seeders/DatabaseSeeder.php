@@ -27,6 +27,7 @@ class DatabaseSeeder extends Seeder
             PatientResourceSeeder::class,
             FAQSeeder::class,
             SettingsSeeder::class,
+            MenuSeeder::class,
         ]);
     }
 }
