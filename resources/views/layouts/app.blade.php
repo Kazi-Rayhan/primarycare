@@ -58,11 +58,7 @@
 
                 <!-- Desktop Navigation -->
                 <nav class="hidden md:flex items-center space-x-8">
-                    <a href="{{ route('home') }}" class="nav-link">Home</a>
-                    <a href="{{ route('about') }}" class="nav-link">About Us</a>
-                    <a href="#services" class="nav-link">Services</a>
-                    <a href="#resources" class="nav-link">Patient Resources</a>
-                    <a href="{{ route('contact') }}" class="nav-link">Contact</a>
+                    @menu('header')
                 </nav>
 
                 <!-- Right side controls -->
@@ -98,11 +94,7 @@
             <!-- Mobile Navigation -->
             <div id="mobile-menu" class="hidden md:hidden pb-4">
                 <nav class="flex flex-col space-y-2">
-                    <a href="{{ route('home') }}" class="nav-link py-2">Home</a>
-                    <a href="{{ route('about') }}" class="nav-link py-2">About Us</a>
-                    <a href="#services" class="nav-link py-2">Services</a>
-                    <a href="#resources" class="nav-link py-2">Patient Resources</a>
-                    <a href="{{ route('contact') }}" class="nav-link py-2">Contact</a>
+                    @menu('mobile')
                 </nav>
             </div>
         </div>
@@ -156,12 +148,7 @@
                 <!-- Quick Links -->
                 <div>
                     <h4 class="font-semibold mb-4 text-white">Quick Links</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#services" class="text-gray-300 hover:text-white motion-safe:transition-colors">Services</a></li>
-                        <li><a href="#team" class="text-gray-300 hover:text-white motion-safe:transition-colors">Our Team</a></li>
-                        <li><a href="#resources" class="text-gray-300 hover:text-white motion-safe:transition-colors">Patient Resources</a></li>
-                        <li><a href="#contact" class="text-gray-300 hover:text-white motion-safe:transition-colors">Contact</a></li>
-                    </ul>
+                    @menu('footer')
                 </div>
 
                 <!-- Office Hours -->

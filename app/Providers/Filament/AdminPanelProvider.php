@@ -18,6 +18,7 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Outerweb\FilamentSettings\Filament\Plugins\FilamentSettingsPlugin;
+use Datlechin\FilamentMenuBuilder\FilamentMenuBuilderPlugin;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -45,7 +46,9 @@ class AdminPanelProvider extends PanelProvider
                 FilamentSettingsPlugin::make()
                     ->pages([
                         \App\Filament\Pages\Settings\Settings::class,
-                    ])
+                    ]),
+                FilamentMenuBuilderPlugin::make()
+                    ->usingResource(\App\Filament\Resources\MenuResource::class)
             ])
             ->middleware([
                 EncryptCookies::class,
