@@ -58,11 +58,11 @@
 
                 <!-- Desktop Navigation -->
                 <nav class="hidden md:flex items-center space-x-8">
-                    <a href="#about" class="nav-link">About Us</a>
-                    <a href="#team" class="nav-link">The Team</a>
+                    <a href="{{ route('home') }}" class="nav-link">Home</a>
+                    <a href="{{ route('about') }}" class="nav-link">About Us</a>
                     <a href="#services" class="nav-link">Services</a>
                     <a href="#resources" class="nav-link">Patient Resources</a>
-                    <a href="#contact" class="nav-link">Contact</a>
+                    <a href="{{ route('contact') }}" class="nav-link">Contact</a>
                 </nav>
 
                 <!-- Right side controls -->
@@ -98,11 +98,11 @@
             <!-- Mobile Navigation -->
             <div id="mobile-menu" class="hidden md:hidden pb-4">
                 <nav class="flex flex-col space-y-2">
-                    <a href="#about" class="nav-link py-2">About Us</a>
-                    <a href="#team" class="nav-link py-2">The Team</a>
+                    <a href="{{ route('home') }}" class="nav-link py-2">Home</a>
+                    <a href="{{ route('about') }}" class="nav-link py-2">About Us</a>
                     <a href="#services" class="nav-link py-2">Services</a>
                     <a href="#resources" class="nav-link py-2">Patient Resources</a>
-                    <a href="#contact" class="nav-link py-2">Contact</a>
+                    <a href="{{ route('contact') }}" class="nav-link py-2">Contact</a>
                 </nav>
             </div>
         </div>

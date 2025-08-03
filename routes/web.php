@@ -2,19 +2,22 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\PatientResource;
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ContactController;
 
 Route::get('/', function () {
     return view('welcome');
 })->name('home');
+
+// About Page
+Route::get('/about', [AboutController::class, 'index'])->name('about');
+
+// Contact Page
+Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
 
 // Patient Resource Pages
 Route::get('/resources/{slug}', function ($slug) {
     $resource = PatientResource::where('slug', $slug)->where('is_active', true)->firstOrFail();
     return view('resources.show', compact('resource'));
 })->name('resources.show');
-
-// Contact Form Handler
-Route::post('/contact', function () {
-    // Handle contact form submission
-    return redirect()->back()->with('success', 'Thank you for your message. We will get back to you soon.');
-})->name('contact.submit');
