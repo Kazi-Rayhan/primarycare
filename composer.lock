@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7809b94af20bd44d3ae928a14c7c29fd",
+    "content-hash": "b208d9379ded5fa3b3e0e14884def3a7",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -3877,6 +3877,61 @@
                 }
             ],
             "time": "2025-07-07T06:15:55+00:00"
+        },
+        {
+            "name": "outerweb/filament-settings",
+            "version": "v1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/outer-web/filament-settings.git",
+                "reference": "891fcd1bd7654deb65e62552f91d8bf21bf87433"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/outer-web/filament-settings/zipball/891fcd1bd7654deb65e62552f91d8bf21bf87433",
+                "reference": "891fcd1bd7654deb65e62552f91d8bf21bf87433",
+                "shasum": ""
+            },
+            "require": {
+                "filament/filament": "^3.2",
+                "laravel/framework": "^10.0|^11.0|^12.0",
+                "outerweb/settings": "^1.0",
+                "php": "^8.0",
+                "spatie/laravel-package-tools": "^1.16"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Outerweb\\FilamentSettings\\FilamentSettingsServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src\\Helpers\\helpers.php"
+                ],
+                "psr-4": {
+                    "Outerweb\\FilamentSettings\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Outerweb",
+                    "email": "info@outerweb.be"
+                }
+            ],
+            "description": "This package adds a way to interact with outerweb/settings in Filament.",
+            "homepage": "https://github.com/outer-web/filament-settings",
+            "support": {
+                "issues": "https://github.com/outer-web/filament-settings/issues",
+                "source": "https://github.com/outer-web/filament-settings/tree/v1.3.0"
+            },
+            "time": "2025-02-27T18:41:57+00:00"
         },
         {
             "name": "outerweb/settings",

@@ -19,12 +19,11 @@
                         Welcome to Primary Care Clinic
                     </div>
                     <h1 class="text-4xl md:text-6xl font-bold text-gray-900 dark:text-dark-text mb-6 animate-fade-in">
-                        Local Doctors Who Care
+                        {{ setting('hero.title', 'Local Doctors Who Care') }}
                     </h1>
                     <p
                         class="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto lg:mx-0 animate-slide-up">
-                        Comprehensive primary care services for you and your family.
-                        We're here to keep you healthy and provide the care you deserve.
+                        {{ setting('hero.subtitle', 'Comprehensive primary care services for you and your family. We\'re here to keep you healthy and provide the care you deserve.') }}
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-scale-in">
                         <a href="#contact" class="btn-primary inline-flex items-center">
@@ -52,7 +51,13 @@
                         </div>
                         <div class="relative bg-white rounded-2xl p-5 shadow-2xl">
                             <div class="w-full h-96 bg-gradient-to-br from-blue-100 to-purple-100 rounded-xl overflow-hidden">
-                                <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                                @php
+                                    $heroImage = setting('hero.image');
+                                    $imageUrl = $heroImage && Storage::exists($heroImage) 
+                                        ? Storage::url($heroImage) 
+                                        : 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80';
+                                @endphp
+                                <img src="{{ $imageUrl }}"
                                     alt="Doctor with patient" class="w-full h-full object-cover rounded-xl">
                             </div>
                         </div>
@@ -75,10 +80,9 @@
                                     clip-rule="evenodd" />
                             </svg>
                         </div>
-                        <h3 class="text-xl font-semibold text-gray-900">COVID-19 Guidelines</h3>
+                        <h3 class="text-xl font-semibold text-gray-900">{{ setting('covid.guidelines.title', 'COVID-19 Guidelines') }}</h3>
                     </div>
-                    <p class="text-gray-600">Stay informed about our latest COVID-19 protocols and safety measures to keep
-                        our patients and staff safe.</p>
+                    <p class="text-gray-600">{{ setting('covid.guidelines.description', 'Stay informed about our latest COVID-19 protocols and safety measures to keep our patients and staff safe.') }}</p>
                 </div>
 
                 <div class="card bg-white/90 backdrop-blur-sm">
@@ -88,10 +92,9 @@
                                 <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
                         </div>
-                        <h3 class="text-xl font-semibold text-gray-900">COVID-19 Vaccine Information</h3>
+                        <h3 class="text-xl font-semibold text-gray-900">{{ setting('covid.vaccine.title', 'COVID-19 Vaccine Information') }}</h3>
                     </div>
-                    <p class="text-gray-600">Learn about vaccine availability, scheduling, and important information for our
-                        patients.</p>
+                    <p class="text-gray-600">{{ setting('covid.vaccine.description', 'Learn about vaccine availability, scheduling, and important information for our patients.') }}</p>
                 </div>
             </div>
         </div>
@@ -106,11 +109,10 @@
                     About Us
                 </div>
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-dark-text mb-4">
-                    About Primary Care Clinic
+                    {{ setting('about.section.title', 'About Primary Care Clinic') }}
                 </h2>
                 <p class="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-                    We are a team of dedicated healthcare professionals committed to providing
-                    personalized, compassionate care to our community.
+                    {{ setting('about.section.description', 'We are a team of dedicated healthcare professionals committed to providing personalized, compassionate care to our community.') }}
                 </p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -123,9 +125,8 @@
                                 clip-rule="evenodd" />
                         </svg>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-dark-text mb-2">Comprehensive Care</h3>
-                    <p class="text-gray-600 dark:text-gray-300">From routine checkups to chronic disease management, we
-                        provide complete primary care services.</p>
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-dark-text mb-2">{{ setting('about.features.comprehensive.title', 'Comprehensive Care') }}</h3>
+                    <p class="text-gray-600 dark:text-gray-300">{{ setting('about.features.comprehensive.description', 'From routine checkups to chronic disease management, we provide complete primary care services.') }}</p>
                 </div>
                 <div class="card text-center group hover:shadow-2xl transition-all duration-300">
                     <div
@@ -135,9 +136,8 @@
                                 clip-rule="evenodd" />
                         </svg>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-dark-text mb-2">Patient-Centered</h3>
-                    <p class="text-gray-600 dark:text-gray-300">We listen to your concerns and work with you to develop
-                        personalized treatment plans.</p>
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-dark-text mb-2">{{ setting('about.features.patient_centered.title', 'Patient-Centered') }}</h3>
+                    <p class="text-gray-600 dark:text-gray-300">{{ setting('about.features.patient_centered.description', 'We listen to your concerns and work with you to develop personalized treatment plans.') }}</p>
                 </div>
                 <div class="card text-center group hover:shadow-2xl transition-all duration-300">
                     <div
@@ -148,9 +148,8 @@
                                 clip-rule="evenodd" />
                         </svg>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-dark-text mb-2">Convenient Access</h3>
-                    <p class="text-gray-600 dark:text-gray-300">Easy scheduling, telehealth options, and extended hours to
-                        fit your busy lifestyle.</p>
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-dark-text mb-2">{{ setting('about.features.convenient.title', 'Convenient Access') }}</h3>
+                    <p class="text-gray-600 dark:text-gray-300">{{ setting('about.features.convenient.description', 'Easy scheduling, telehealth options, and extended hours to fit your busy lifestyle.') }}</p>
                 </div>
             </div>
         </div>
@@ -165,14 +164,14 @@
                     Our Services
                 </div>
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-dark-text mb-4">
-                    Our Services
+                    {{ setting('services.section.title', 'Our Services') }}
                 </h2>
                 <p class="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-                    We offer a comprehensive range of primary care services to meet your health needs.
+                    {{ setting('services.section.description', 'We offer a comprehensive range of primary care services to meet your health needs.') }}
                 </p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                @foreach (\App\Models\Service::active()->ordered()->take(6)->get() as $service)
+                @foreach ($services as $service)
                     <div class="card group hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
                         <div
                             class="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
@@ -185,7 +184,7 @@
                         <h3 class="text-xl font-semibold text-gray-900 dark:text-dark-text mb-2">{{ $service->title }}</h3>
                         <p class="text-gray-600 dark:text-gray-300">{{ Str::limit($service->description, 120) }}</p>
                         <div class="mt-4">
-                            <a href="#"
+                            <a href="{{ route('resources.show', $service->slug) }}"
                                 class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
                                 Learn More
                                 <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20">
@@ -207,20 +206,20 @@
             <div class="text-center mb-12">
                 <div
                     class="inline-flex items-center px-4 py-2 bg-purple-100 text-purple-800 rounded-full text-sm font-medium mb-4">
-                    Meet Our Team
+                    {{ setting('team.section.title', 'Meet Our Team') }}
                 </div>
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-dark-text mb-4">
-                    Meet Our Team
+                    {{ setting('team.section.title', 'Meet Our Team') }}
                 </h2>
                 <p class="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-                    Our experienced healthcare professionals are dedicated to providing you with the best care possible.
+                    {{ setting('team.section.description', 'Our experienced healthcare professionals are dedicated to providing you with the best care possible.') }}
                 </p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                @foreach (\App\Models\Provider::active()->ordered()->take(6)->get() as $provider)
+                @foreach ($providers as $provider)
                     <div class="team-card group hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
                         <div class="relative mb-6">
-                            <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                            <img src="{{ $provider->photo_url }}"
                                 alt="{{ $provider->name }}"
                                 class="doctor-image mx-auto group-hover:scale-105 transition-transform duration-300">
                             <div class="absolute -bottom-2 left-1/2 transform -translate-x-1/2">
@@ -233,34 +232,10 @@
                         <h3 class="text-xl font-semibold text-gray-900 dark:text-dark-text mb-1">{{ $provider->name }}</h3>
                         <p class="text-blue-600 dark:text-blue-400 mb-3">{{ $provider->title }}</p>
                         <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">{{ Str::limit($provider->bio, 150) }}</p>
-                        <div class="flex justify-center space-x-2 mb-4">
-                            @if ($provider->accepts_telehealth)
-                                <span
-                                    class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
-                                    <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd"
-                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                                            clip-rule="evenodd" />
-                                    </svg>
-                                    Telehealth
-                                </span>
-                            @endif
-                            @if ($provider->accepts_new_patients)
-                                <span
-                                    class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
-                                    <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd"
-                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                                            clip-rule="evenodd" />
-                                    </svg>
-                                    New Patients
-                                </span>
-                            @endif
-                        </div>
-                        <button
-                            class="w-full bg-gradient-to-r from-blue-500 to-purple-500 text-white py-2 px-4 rounded-lg font-medium hover:from-blue-600 hover:to-purple-600 transition-all duration-300">
+                        <a href="{{ route('contact') }}?provider={{ $provider->id }}"
+                            class="w-full bg-gradient-to-r from-blue-500 to-purple-500 text-white py-2 px-4 rounded-lg font-medium hover:from-blue-600 hover:to-purple-600 transition-all duration-300 inline-block text-center">
                             Make an Appointment
-                        </button>
+                        </a>
                     </div>
                 @endforeach
             </div>
@@ -356,12 +331,12 @@
                 </p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                @foreach (\App\Models\PatientResource::active()->ordered()->take(6)->get() as $resource)
+                @foreach ($patientResources as $resource)
                     <div
                         class="card bg-white/90 backdrop-blur-sm group hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
                         <h3 class="text-lg font-semibold text-gray-900 mb-2">{{ $resource->title }}</h3>
                         <p class="text-sm text-gray-600 mb-4">{{ Str::limit(strip_tags($resource->content), 100) }}</p>
-                        <a href="#" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
+                        <a href="{{ route('resources.show', $resource->slug) }}" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
                             Learn More
                             <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd"
@@ -381,13 +356,13 @@
             <div class="text-center mb-12">
                 <div
                     class="inline-flex items-center px-4 py-2 bg-green-100 text-green-800 rounded-full text-sm font-medium mb-4">
-                    Contact Us
+                    {{ setting('contact.section.title', 'Contact Us') }}
                 </div>
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-dark-text mb-4">
-                    Contact Us
+                    {{ setting('contact.section.title', 'Contact Us') }}
                 </h2>
                 <p class="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-                    Ready to schedule an appointment? Get in touch with us today.
+                    {{ setting('contact.section.description', 'Ready to schedule an appointment? Get in touch with us today.') }}
                 </p>
             </div>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -406,7 +381,7 @@
                             </div>
                             <div>
                                 <h4 class="font-semibold text-gray-900 dark:text-dark-text">Address</h4>
-                                <p class="text-gray-600 dark:text-gray-300">123 Main Street<br>City, State 12345</p>
+                                <p class="text-gray-600 dark:text-gray-300">{{ setting('contact.address.street', '123 Main Street') }}<br>{{ setting('contact.address.city', 'City') }}, {{ setting('contact.address.state', 'State') }} {{ setting('contact.address.zip', '12345') }}</p>
                             </div>
                         </div>
                         <div class="flex items-start space-x-4">
@@ -419,7 +394,7 @@
                             </div>
                             <div>
                                 <h4 class="font-semibold text-gray-900 dark:text-dark-text">Phone</h4>
-                                <p class="text-gray-600 dark:text-gray-300">(555) 123-4567</p>
+                                <p class="text-gray-600 dark:text-gray-300">{{ setting('contact.phone.main', '(555) 123-4567') }}</p>
                             </div>
                         </div>
                         <div class="flex items-start space-x-4">
@@ -432,7 +407,7 @@
                             </div>
                             <div>
                                 <h4 class="font-semibold text-gray-900 dark:text-dark-text">Email</h4>
-                                <p class="text-gray-600 dark:text-gray-300">info@primarycareclinic.com</p>
+                                <p class="text-gray-600 dark:text-gray-300">{{ setting('contact.email.general', 'info@primarycareclinic.com') }}</p>
                             </div>
                         </div>
                     </div>
@@ -440,16 +415,16 @@
                     <div class="mt-8">
                         <h4 class="font-semibold text-gray-900 dark:text-dark-text mb-4">Office Hours</h4>
                         <div class="space-y-2 text-sm text-gray-600 dark:text-gray-300">
-                            <p>Monday - Friday: 8:00 AM - 6:00 PM</p>
-                            <p>Saturday: 9:00 AM - 2:00 PM</p>
-                            <p>Sunday: Closed</p>
+                            <p>Monday - Friday: {{ setting('contact.hours.monday_friday', '8:00 AM - 6:00 PM') }}</p>
+                            <p>Saturday: {{ setting('contact.hours.saturday', '9:00 AM - 2:00 PM') }}</p>
+                            <p>Sunday: {{ setting('contact.hours.sunday', 'Closed') }}</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Contact Form -->
                 <div class="card bg-white shadow-xl">
-                    <h3 class="text-2xl font-semibold text-gray-900 dark:text-dark-text mb-6">Send Us a Message</h3>
+                    <h3 class="text-2xl font-semibold text-gray-900 dark:text-dark-text mb-6">{{ setting('contact.form.title', 'Send Us a Message') }}</h3>
                     <form class="space-y-4">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>

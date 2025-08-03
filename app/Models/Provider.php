@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class Provider extends Model
 {
@@ -15,8 +16,6 @@ class Provider extends Model
         'bio',
         'photo',
         'specialty',
-        'accepts_telehealth',
-        'accepts_new_patients',
         'email',
         'phone',
         'sort_order',
@@ -24,8 +23,6 @@ class Provider extends Model
     ];
 
     protected $casts = [
-        'accepts_telehealth' => 'boolean',
-        'accepts_new_patients' => 'boolean',
         'is_active' => 'boolean',
     ];
 
@@ -67,10 +64,10 @@ class Provider extends Model
     public function getPhotoUrlAttribute()
     {
         if ($this->photo) {
-            return asset('storage/' . $this->photo);
+            return Storage::url($this->photo);
         }
         
         // Return a placeholder image
-        return asset('images/placeholder-provider.jpg');
+        return 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80';
     }
 }

@@ -50,8 +50,11 @@ class ProviderResource extends Resource
                             ->label('Profile Photo')
                             ->image()
                             ->imageEditor()
+                            ->imageCropAspectRatio('1:1')
                             ->directory('providers')
-                            ->visibility('public'),
+                            ->visibility('public')
+                            ->maxSize(2048) // 2MB
+                            ->helperText('Upload a professional headshot (recommended: 400x400 or larger). Maximum file size: 2MB.'),
                     ])->columns(2),
 
                 Forms\Components\Section::make('Biography')
@@ -81,20 +84,12 @@ class ProviderResource extends Resource
                             ->maxLength(255),
                     ])->columns(2),
 
-                Forms\Components\Section::make('Availability')
+                Forms\Components\Section::make('Status')
                     ->schema([
-                        Forms\Components\Toggle::make('accepts_telehealth')
-                            ->label('Accepts Telehealth')
-                            ->default(true),
-                        
-                        Forms\Components\Toggle::make('accepts_new_patients')
-                            ->label('Accepts New Patients')
-                            ->default(true),
-                        
                         Forms\Components\Toggle::make('is_active')
                             ->label('Active Provider')
                             ->default(true),
-                    ])->columns(3),
+                    ]),
 
                 Forms\Components\Section::make('Display Settings')
                     ->schema([
@@ -130,18 +125,6 @@ class ProviderResource extends Resource
                     ->label('Specialty')
                     ->searchable(),
                 
-                Tables\Columns\IconColumn::make('accepts_telehealth')
-                    ->label('Telehealth')
-                    ->boolean()
-                    ->trueIcon('heroicon-o-video-camera')
-                    ->falseIcon('heroicon-o-x-mark'),
-                
-                Tables\Columns\IconColumn::make('accepts_new_patients')
-                    ->label('New Patients')
-                    ->boolean()
-                    ->trueIcon('heroicon-o-user-plus')
-                    ->falseIcon('heroicon-o-x-mark'),
-                
                 Tables\Columns\IconColumn::make('is_active')
                     ->label('Active')
                     ->boolean()
@@ -161,10 +144,6 @@ class ProviderResource extends Resource
             ->filters([
                 Tables\Filters\TernaryFilter::make('is_active')
                     ->label('Active Status'),
-                Tables\Filters\TernaryFilter::make('accepts_telehealth')
-                    ->label('Telehealth Available'),
-                Tables\Filters\TernaryFilter::make('accepts_new_patients')
-                    ->label('Accepts New Patients'),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),

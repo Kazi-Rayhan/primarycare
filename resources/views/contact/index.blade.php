@@ -5,7 +5,7 @@
     <section class="bg-gradient-to-br from-blue-50 via-light-purple to-blue-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center">
-                <h1 class="text-4xl md:text-6xl font-bold text-gray-900 dark:text-dark-text mb-6">
+                <h1 class="text-4xl md:text-6xl font-bold text-white dark:text-dark-text mb-6">
                     Contact Us
                 </h1>
                 <p class="text-xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto">
@@ -21,7 +21,7 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
                 <!-- Contact Details -->
                 <div>
-                    <h2 class="text-3xl font-bold text-gray-900 dark:text-dark-text mb-8">Get in Touch</h2>
+                    <h2 class="text-3xl font-bold text-white dark:text-dark-text mb-8">Get in Touch</h2>
                     
                     <div class="space-y-8">
                         <!-- Address -->
@@ -33,9 +33,9 @@
                             </div>
                             <div>
                                 <h3 class="text-xl font-semibold text-gray-900 dark:text-dark-text mb-2">Visit Our Clinic</h3>
-                                <p class="text-gray-700 dark:text-gray-300 mb-1">123 Main Street</p>
-                                <p class="text-gray-700 dark:text-gray-300 mb-1">City, State 12345</p>
-                                <p class="text-gray-700 dark:text-gray-300">United States</p>
+                                <p class="text-gray-700 dark:text-gray-800 mb-1">{{ setting('contact.address.street', '123 Main Street') }}</p>
+                                <p class="text-gray-700 dark:text-gray-800 mb-1">{{ setting('contact.address.city', 'City') }}, {{ setting('contact.address.state', 'State') }} {{ setting('contact.address.zip', '12345') }}</p>
+                                <p class="text-gray-700 dark:text-gray-800">{{ setting('contact.address.country', 'United States') }}</p>
                             </div>
                         </div>
 
@@ -48,9 +48,9 @@
                             </div>
                             <div>
                                 <h3 class="text-xl font-semibold text-gray-900 dark:text-dark-text mb-2">Call Us</h3>
-                                <p class="text-gray-700 dark:text-gray-300 mb-1">Main Office: (555) 123-4567</p>
-                                <p class="text-gray-700 dark:text-gray-300 mb-1">Emergency: (555) 911-0000</p>
-                                <p class="text-gray-700 dark:text-gray-300">Fax: (555) 123-4568</p>
+                                <p class="text-gray-700 dark:text-gray-800 mb-1">Main Office: {{ setting('contact.phone.main', '(555) 123-4567') }}</p>
+                                <p class="text-gray-700 dark:text-gray-800 mb-1">Emergency: {{ setting('contact.phone.emergency', '(555) 911-0000') }}</p>
+                                <p class="text-gray-700 dark:text-gray-800">Fax: {{ setting('contact.phone.fax', '(555) 123-4568') }}</p>
                             </div>
                         </div>
 
@@ -64,9 +64,9 @@
                             </div>
                             <div>
                                 <h3 class="text-xl font-semibold text-gray-900 dark:text-dark-text mb-2">Email Us</h3>
-                                <p class="text-gray-700 dark:text-gray-300 mb-1">General: info@primarycareclinic.com</p>
-                                <p class="text-gray-700 dark:text-gray-300 mb-1">Appointments: appointments@primarycareclinic.com</p>
-                                <p class="text-gray-700 dark:text-gray-300">Billing: billing@primarycareclinic.com</p>
+                                <p class="text-gray-700 dark:text-gray-800 mb-1">General: {{ setting('contact.email.general', 'info@primarycareclinic.com') }}</p>
+                                <p class="text-gray-700 dark:text-gray-800 mb-1">Appointments: {{ setting('contact.email.appointments', 'appointments@primarycareclinic.com') }}</p>
+                                <p class="text-gray-700 dark:text-gray-800">Billing: {{ setting('contact.email.billing', 'billing@primarycareclinic.com') }}</p>
                             </div>
                         </div>
 
@@ -79,11 +79,11 @@
                             </div>
                             <div>
                                 <h3 class="text-xl font-semibold text-gray-900 dark:text-dark-text mb-2">Office Hours</h3>
-                                <div class="space-y-1 text-gray-700 dark:text-gray-300">
-                                    <p><span class="font-medium">Monday - Friday:</span> 8:00 AM - 6:00 PM</p>
-                                    <p><span class="font-medium">Saturday:</span> 9:00 AM - 2:00 PM</p>
-                                    <p><span class="font-medium">Sunday:</span> Closed</p>
-                                    <p><span class="font-medium">Holidays:</span> Closed (call for emergency)</p>
+                                <div class="space-y-1 text-gray-700 dark:text-gray-800">
+                                    <p><span class="font-medium">Monday - Friday:</span> {{ setting('contact.hours.monday_friday', '8:00 AM - 6:00 PM') }}</p>
+                                    <p><span class="font-medium">Saturday:</span> {{ setting('contact.hours.saturday', '9:00 AM - 2:00 PM') }}</p>
+                                    <p><span class="font-medium">Sunday:</span> {{ setting('contact.hours.sunday', 'Closed') }}</p>
+                                    <p><span class="font-medium">Holidays:</span> {{ setting('contact.hours.holidays', 'Closed (call for emergency)') }}</p>
                                 </div>
                             </div>
                         </div>
@@ -91,22 +91,22 @@
 
                     <!-- Emergency Information -->
                     <div class="mt-8 p-6 bg-red-50 dark:bg-red-900/20 rounded-lg border border-red-200 dark:border-red-800">
-                        <h3 class="text-lg font-semibold text-red-800 dark:text-red-200 mb-2">Emergency Care</h3>
-                        <p class="text-red-700 dark:text-red-300 mb-3">
-                            For medical emergencies, please call 911 or go to the nearest emergency room immediately.
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-red-200 mb-2">{{ setting('emergency.title', 'Emergency Care') }}</h3>
+                        <p class="text-gray-900 dark:text-red-300 mb-3">
+                            {{ setting('emergency.description', 'For medical emergencies, please call 911 or go to the nearest emergency room immediately.') }}
                         </p>
-                        <p class="text-sm text-red-600 dark:text-red-400">
-                            Our clinic is not equipped for emergency care outside of regular business hours.
+                        <p class="text-sm text-gray-900 dark:text-red-400">
+                            {{ setting('emergency.note', 'Our clinic is not equipped for emergency care outside of regular business hours.') }}
                         </p>
                     </div>
                 </div>
 
                 <!-- Map -->
                 <div>
-                    <h3 class="text-2xl font-semibold text-gray-900 dark:text-dark-text mb-6">Our Location</h3>
+                    <h3 class="text-2xl font-semibold text-white dark:text-dark-text mb-6">Our Location</h3>
                     <div class="bg-gray-200 dark:bg-gray-700 rounded-lg h-96 mb-6 overflow-hidden">
                         <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3680.4685894148215!2d90.34812327408235!3d22.710818227892624!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x37553535680490d1%3A0x72ca830e6c94a34b!2sSohojware!5e0!3m2!1sen!2sbd!4v1754223193244!5m2!1sen!2sbd"
+                            src="{{ setting('contact.location.map_embed', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3680.4685894148215!2d90.34812327408235!3d22.710818227892624!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x37553535680490d1%3A0x72ca830e6c94a34b!2sSohojware!5e0!3m2!1sen!2sbd!4v1754223193244!5m2!1sen!2sbd') }}"
                             class="w-full h-full"
                             style="border:0;"
                             allowfullscreen=""
@@ -116,9 +116,9 @@
                     </div>
                     
                     <div class="space-y-2 text-sm text-gray-700 dark:text-gray-300">
-                        <p><span class="font-medium">Parking:</span> Free parking available in front of the building</p>
-                        <p><span class="font-medium">Accessibility:</span> Wheelchair accessible entrance and facilities</p>
-                        <p><span class="font-medium">Public Transit:</span> Bus routes 15, 23, and 45 stop nearby</p>
+                        <p><span class="font-medium">Parking:</span> {{ setting('contact.location.parking', 'Free parking available in front of the building') }}</p>
+                        <p><span class="font-medium">Accessibility:</span> {{ setting('contact.location.accessibility', 'Wheelchair accessible entrance and facilities') }}</p>
+                        <p><span class="font-medium">Public Transit:</span> {{ setting('contact.location.public_transit', 'Bus routes 15, 23, and 45 stop nearby') }}</p>
                     </div>
                 </div>
             </div>
@@ -129,7 +129,7 @@
     <section class="py-16 bg-gray-50 dark:bg-gray-900">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-gray-900 dark:text-dark-text mb-4">Send Us a Message</h2>
+                <h2 class="text-3xl font-bold text-white dark:text-dark-text mb-4">Send Us a Message</h2>
                 <p class="text-lg text-gray-700 dark:text-gray-300 max-w-2xl mx-auto">
                     Have a question or need to schedule an appointment? Fill out the form below and we'll get back to you within 24 hours.
                 </p>
@@ -141,12 +141,29 @@
                 </div>
             @endif
 
+            @if($selectedProvider)
+                <div class="mb-6 p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
+                    <h3 class="text-lg font-semibold text-blue-900 dark:text-blue-200 mb-2">Selected Provider</h3>
+                    <div class="flex items-center space-x-4">
+                        <img src="{{ $selectedProvider->photo_url }}" alt="{{ $selectedProvider->name }}" class="w-12 h-12 rounded-full object-cover">
+                        <div>
+                            <p class="font-medium text-blue-900 dark:text-blue-200">{{ $selectedProvider->name }}</p>
+                            <p class="text-sm text-blue-700 dark:text-blue-300">{{ $selectedProvider->title }} - {{ $selectedProvider->specialty }}</p>
+                        </div>
+                    </div>
+                </div>
+            @endif
+
             <form action="{{ route('contact.submit') }}" method="POST" class="space-y-6">
                 @csrf
                 
+                @if($selectedProvider)
+                    <input type="hidden" name="provider_id" value="{{ $selectedProvider->id }}">
+                @endif
+                
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                        <label for="first_name" class="block text-sm font-medium text-gray-900 dark:text-dark-text mb-2">
+                        <label for="first_name" class="block text-sm font-medium text-white dark:text-dark-text mb-2">
                             First Name *
                         </label>
                         <input type="text" 
@@ -160,7 +177,7 @@
                     </div>
                     
                     <div>
-                        <label for="last_name" class="block text-sm font-medium text-gray-900 dark:text-dark-text mb-2">
+                        <label for="last_name" class="block text-sm font-medium text-white dark:text-dark-text mb-2">
                             Last Name *
                         </label>
                         <input type="text" 
@@ -176,7 +193,7 @@
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                        <label for="email" class="block text-sm font-medium text-gray-900 dark:text-dark-text mb-2">
+                        <label for="email" class="block text-sm font-medium text-white dark:text-dark-text mb-2">
                             Email Address *
                         </label>
                         <input type="email" 
@@ -190,7 +207,7 @@
                     </div>
                     
                     <div>
-                        <label for="phone" class="block text-sm font-medium text-gray-900 dark:text-dark-text mb-2">
+                        <label for="phone" class="block text-sm font-medium text-white dark:text-dark-text mb-2">
                             Phone Number
                         </label>
                         <input type="tel" 
@@ -204,7 +221,7 @@
                 </div>
 
                 <div>
-                    <label for="message" class="block text-sm font-medium text-gray-900 dark:text-dark-text mb-2">
+                    <label for="message" class="block text-sm font-medium text-white dark:text-dark-text mb-2">
                         Message *
                     </label>
                     <textarea id="message" 
@@ -237,39 +254,21 @@
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold text-gray-900 dark:text-dark-text mb-4">Frequently Asked Questions</h2>
-                <p class="text-lg text-gray-700 dark:text-gray-300">
+                <p class="text-lg text-gray-900 dark:text-gray-300">
                     Find answers to common questions about our services and policies.
                 </p>
             </div>
+            
 
             <div class="space-y-6">
-                <div class="card">
-                    <h3 class="text-lg font-semibold text-gray-900 dark:text-dark-text mb-3">How do I schedule an appointment?</h3>
-                    <p class="text-gray-700 dark:text-gray-300">
-                        You can schedule an appointment by calling us at (555) 123-4567, using our online booking system, or by filling out the contact form above. We typically respond within 24 hours.
-                    </p>
-                </div>
-
-                <div class="card">
-                    <h3 class="text-lg font-semibold text-gray-900 dark:text-dark-text mb-3">Do you accept insurance?</h3>
-                    <p class="text-gray-700 dark:text-gray-300">
-                        Yes, we accept most major insurance plans. Please contact our office to verify your specific insurance coverage before your appointment.
-                    </p>
-                </div>
-
-                <div class="card">
-                    <h3 class="text-lg font-semibold text-gray-900 dark:text-dark-text mb-3">What should I bring to my first appointment?</h3>
-                    <p class="text-gray-700 dark:text-gray-300">
-                        Please bring your ID, insurance card, list of current medications, and any relevant medical records. New patients should arrive 15 minutes early to complete paperwork.
-                    </p>
-                </div>
-
-                <div class="card">
-                    <h3 class="text-lg font-semibold text-gray-900 dark:text-dark-text mb-3">Do you offer telehealth appointments?</h3>
-                    <p class="text-gray-700 dark:text-gray-300">
-                        Yes, we offer telehealth appointments for many types of visits. Please call us to determine if your appointment type is suitable for telehealth.
-                    </p>
-                </div>
+                @foreach($faqs as $faq)
+                    <div class="card">
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-dark-text mb-3">{{ $faq->question }}</h3>
+                        <p class="text-gray-900 dark:text-gray-300">
+                            {{ $faq->answer }}
+                        </p>
+                    </div>
+                @endforeach
             </div>
         </div>
     </section>

@@ -5,9 +5,7 @@ use App\Models\PatientResource;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ContactController;
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 // About Page
 Route::get('/about', [AboutController::class, 'index'])->name('about');
