@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Mail;
 use App\Models\ContactSubmission;
 use App\Models\Provider;
 use App\Models\FAQ;
+use App\Mail\ContactFormSubmitted;
 
 class ContactController extends Controller
 {
@@ -35,7 +36,7 @@ class ContactController extends Controller
         ]);
 
         // Save the contact submission to database
-        ContactSubmission::create([
+        $submission = ContactSubmission::create([
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
             'email' => $request->email,
@@ -45,8 +46,24 @@ class ContactController extends Controller
             'status' => 'pending',
         ]);
 
-        // Here you would typically send an email notification
-        // For now, we'll just redirect with a success message
+        // Send email notification to admin
+        $adminEmail = setting('contact.email.admin');
+        if ($adminEmail) {
+            try {
+                Mail::to($adminEmail)->send(new ContactFormSubmitted([
+                    'first_name' => $request->first_name,
+                    'last_name' => $request->last_name,
+                    'email' => $request->email,
+                    'phone' => $request->phone,
+                    'message' => $request->message,
+                    'provider_id' => $request->provider_id,
+                    'submission_id' => $submission->id,
+                ]));
+            } catch (\Exception $e) {
+                // Log the error but don't fail the submission
+                \Log::error('Failed to send contact form notification: ' . $e->getMessage());
+            }
+        }
         
         $message = 'Thank you for your message. We will get back to you within 24 hours.';
         

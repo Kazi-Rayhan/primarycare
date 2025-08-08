@@ -27,6 +27,7 @@ class SettingsSeeder extends Seeder
         setting(['contact.email.general' => 'info@primarycareclinic.com']);
         setting(['contact.email.appointments' => 'appointments@primarycareclinic.com']);
         setting(['contact.email.billing' => 'billing@primarycareclinic.com']);
+        setting(['contact.email.admin' => 'admin@primarycareclinic.com']);
         
         // Office Hours
         setting(['contact.hours.monday_friday' => '8:00 AM - 6:00 PM']);

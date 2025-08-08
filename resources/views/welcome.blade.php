@@ -425,40 +425,58 @@
                 <!-- Contact Form -->
                 <div class="card bg-white shadow-xl">
                     <h3 class="text-2xl font-semibold text-gray-900 dark:text-dark-text mb-6">{{ setting('contact.form.title', 'Send Us a Message') }}</h3>
-                    <form class="space-y-4">
+                    
+                    @if(session('success'))
+                        <div class="mb-4 p-4 bg-green-100 border border-green-400 text-green-700 rounded">
+                            {{ session('success') }}
+                        </div>
+                    @endif
+
+                    @if($errors->any())
+                        <div class="mb-4 p-4 bg-red-100 border border-red-400 text-red-700 rounded">
+                            <ul class="list-disc list-inside">
+                                @foreach($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
+                    <form action="{{ route('contact.submit') }}" method="POST" class="space-y-4">
+                        @csrf
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
                                 <label for="first_name"
                                     class="block text-sm font-medium text-gray-900 dark:text-dark-text mb-1">First
                                     Name</label>
-                                <input type="text" id="first_name" name="first_name"
+                                <input type="text" id="first_name" name="first_name" value="{{ old('first_name') }}" required
                                     class="w-full px-3 py-2 border border-gray-300 dark:border-dark-surface rounded-lg bg-white dark:bg-dark-surface text-gray-900 dark:text-dark-text focus:ring-2 focus:ring-blue-500 focus:border-transparent">
                             </div>
                             <div>
                                 <label for="last_name"
                                     class="block text-sm font-medium text-gray-900 dark:text-dark-text mb-1">Last
                                     Name</label>
-                                <input type="text" id="last_name" name="last_name"
+                                <input type="text" id="last_name" name="last_name" value="{{ old('last_name') }}" required
                                     class="w-full px-3 py-2 border border-gray-300 dark:border-dark-surface rounded-lg bg-white dark:bg-dark-surface text-gray-900 dark:text-dark-text focus:ring-2 focus:ring-blue-500 focus:border-transparent">
                             </div>
                         </div>
                         <div>
                             <label for="email"
                                 class="block text-sm font-medium text-gray-900 dark:text-dark-text mb-1">Email</label>
-                            <input type="email" id="email" name="email"
+                            <input type="email" id="email" name="email" value="{{ old('email') }}" required
                                 class="w-full px-3 py-2 border border-gray-300 dark:border-dark-surface rounded-lg bg-white dark:bg-dark-surface text-gray-900 dark:text-dark-text focus:ring-2 focus:ring-blue-500 focus:border-transparent">
                         </div>
                         <div>
                             <label for="phone"
                                 class="block text-sm font-medium text-gray-900 dark:text-dark-text mb-1">Phone</label>
-                            <input type="tel" id="phone" name="phone"
+                            <input type="tel" id="phone" name="phone" value="{{ old('phone') }}"
                                 class="w-full px-3 py-2 border border-gray-300 dark:border-dark-surface rounded-lg bg-white dark:bg-dark-surface text-gray-900 dark:text-dark-text focus:ring-2 focus:ring-blue-500 focus:border-transparent">
                         </div>
                         <div>
                             <label for="message"
                                 class="block text-sm font-medium text-gray-900 dark:text-dark-text mb-1">Message</label>
-                            <textarea id="message" name="message" rows="4"
-                                class="w-full px-3 py-2 border border-gray-300 dark:border-dark-surface rounded-lg bg-white dark:bg-dark-surface text-gray-900 dark:text-dark-text focus:ring-2 focus:ring-blue-500 focus:border-transparent"></textarea>
+                            <textarea id="message" name="message" rows="4" required
+                                class="w-full px-3 py-2 border border-gray-300 dark:border-dark-surface rounded-lg bg-white dark:bg-dark-surface text-gray-900 dark:text-dark-text focus:ring-2 focus:ring-blue-500 focus:border-transparent">{{ old('message') }}</textarea>
                         </div>
                         <button type="submit"
                             class="w-full bg-gradient-to-r from-blue-500 to-purple-500 text-white py-3 px-6 rounded-lg font-medium hover:from-blue-600 hover:to-purple-600 transition-all duration-300">

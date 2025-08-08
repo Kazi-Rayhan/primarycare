@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Primary Care Clinic') }}</title>
-    <meta name="description" content="Comprehensive primary care services for you and your family. Local doctors who care.">
-    <meta property="og:title" content="Primary Care Clinic">
-    <meta property="og:description" content="Comprehensive primary care services for you and your family.">
+    <title>{{ setting('site.name', config('app.name', 'Primary Care Clinic')) }}</title>
+    <meta name="description" content="{{ setting('site.description', 'Comprehensive primary care services for you and your family. Local doctors who care.') }}">
+    <meta property="og:title" content="{{ setting('site.name', 'Primary Care Clinic') }}">
+    <meta property="og:description" content="{{ setting('site.description', 'Comprehensive primary care services for you and your family.') }}">
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ url()->current() }}">
 
@@ -47,12 +47,18 @@
                 <!-- Logo -->
                 <div class="flex items-center space-x-4">
                     <div class="flex items-center space-x-3">
-                        <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-500 rounded-lg flex items-center justify-center">
-                            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd" />
-                            </svg>
-                        </div>
-                        <span class="text-xl font-bold text-gray-900 dark:text-dark-text">Primary Care Clinic</span>
+                        @if(setting('site.logo'))
+                            <img src="{{ asset('storage/' . setting('site.logo')) }}" 
+                                 alt="{{ setting('site.name', 'Primary Care Clinic') }}" 
+                                 class="h-10 w-auto max-w-[200px] object-contain">
+                        @else
+                            <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-500 rounded-lg flex items-center justify-center">
+                                <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                        @endif
+                        <span class="text-xl font-bold text-gray-900 dark:text-dark-text">{{ setting('site.name', 'Primary Care Clinic') }}</span>
                     </div>
                 </div>
 
@@ -136,8 +142,8 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Contact Info -->
                 <div>
-                    <h3 class="text-lg font-semibold mb-4 text-white">Primary Care Clinic</h3>
-                    <p class="text-sm text-gray-300 mb-4">Local doctors who care. Providing comprehensive primary care services for you and your family.</p>
+                    <h3 class="text-lg font-semibold mb-4 text-white">{{ setting('site.name', 'Primary Care Clinic') }}</h3>
+                    <p class="text-sm text-gray-300 mb-4">{{ setting('site.tagline', 'Local doctors who care') }}. {{ setting('site.description', 'Providing comprehensive primary care services for you and your family.') }}</p>
                     <div class="space-y-2 text-sm text-gray-300">
                         <p>123 Main Street</p>
                         <p>City, State 12345</p>
@@ -163,7 +169,7 @@
             </div>
 
             <div class="border-t border-gray-700 mt-8 pt-8 text-center text-sm text-gray-300">
-                <p>&copy; {{ date('Y') }} Primary Care Clinic. All rights reserved.</p>
+                <p>&copy; {{ date('Y') }} {{ setting('site.name', 'Primary Care Clinic') }}. All rights reserved.</p>
             </div>
         </div>
     </footer>

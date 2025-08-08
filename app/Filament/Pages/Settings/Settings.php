@@ -22,6 +22,16 @@ class Settings extends BaseSettings
                         ->schema([
                             Section::make('Site Information')
                                 ->schema([
+                                    FileUpload::make('site.logo')
+                                        ->label('Site Logo')
+                                        ->image()
+                                        ->imageEditor()
+                                        ->imageCropAspectRatio('3:1')
+                                        ->directory('site-logos')
+                                        ->visibility('public')
+                                        ->maxSize(2048) // 2MB
+                                        ->helperText('Upload your site logo (recommended: 300x100px or similar ratio). Maximum file size: 2MB.')
+                                        ->columnSpanFull(),
                                     TextInput::make('site.name')
                                         ->label('Site Name')
                                         ->required(),
@@ -113,6 +123,14 @@ class Settings extends BaseSettings
                                                 ->label('Billing Email')
                                                 ->email()
                                                 ->required(),
+                                        ]),
+                                    Grid::make(1)
+                                        ->schema([
+                                            TextInput::make('contact.email.admin')
+                                                ->label('Admin Email (for contact form notifications)')
+                                                ->email()
+                                                ->required()
+                                                ->helperText('This email will receive notifications when someone submits the contact form.'),
                                         ]),
                                 ]),
                         ]),
