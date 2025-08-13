@@ -48,7 +48,11 @@ class AdminPanelProvider extends PanelProvider
                         \App\Filament\Pages\Settings\Settings::class,
                     ]),
                 FilamentMenuBuilderPlugin::make()
-                    ->usingResource(\App\Filament\Resources\MenuResource::class)
+                    ->addLocations([
+                        'header' => 'Main Menu',
+                        'mobile' => 'Mobile Menu',
+                        'footer' => 'Quick Links',
+                    ])
             ])
             ->middleware([
                 EncryptCookies::class,
