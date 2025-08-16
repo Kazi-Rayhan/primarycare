@@ -2,7 +2,7 @@
 
 @section('content')
     <!-- Hero Section with Real Images -->
-    <section class="hero-gradient min-h-screen flex items-center relative overflow-hidden">
+    {{-- <section class="hero-gradient min-h-screen flex items-center relative overflow-hidden">
         <div class="absolute inset-0 bg-gradient-to-br from-blue-50 via-light-purple to-blue-100"></div>
         <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
         <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -65,7 +65,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
     <!-- COVID-19 Information Section -->
     <section class="py-16 bg-gradient-to-r from-blue-500 to-teal-500">
@@ -274,10 +274,7 @@
                             <span class="font-medium text-gray-900 dark:text-dark-text">Sunday</span>
                             <span class="text-gray-600 dark:text-gray-300">Closed</span>
                         </div>
-                        <div class="flex justify-between items-center py-3">
-                            <span class="font-medium text-gray-900 dark:text-dark-text">Emergency</span>
-                            <span class="text-red-600 dark:text-red-400">24/7 Available</span>
-                        </div>
+                       
                     </div>
                    
                 </div>

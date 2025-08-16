@@ -65,8 +65,8 @@
                             <div>
                                 <h3 class="text-xl font-semibold text-gray-900 dark:text-dark-text mb-2">Email Us</h3>
                                 <p class="text-gray-700 dark:text-gray-800 mb-1">General: {{ setting('contact.email.general', 'info@primarycareclinic.com') }}</p>
-                                <p class="text-gray-700 dark:text-gray-800 mb-1">Appointments: {{ setting('contact.email.appointments', 'appointments@primarycareclinic.com') }}</p>
-                                <p class="text-gray-700 dark:text-gray-800">Billing: {{ setting('contact.email.billing', 'billing@primarycareclinic.com') }}</p>
+                                {{-- <p class="text-gray-700 dark:text-gray-800 mb-1">Appointments: {{ setting('contact.email.appointments', 'appointments@primarycareclinic.com') }}</p>
+                                <p class="text-gray-700 dark:text-gray-800">Billing: {{ setting('contact.email.billing', 'billing@primarycareclinic.com') }}</p> --}}
                             </div>
                         </div>
 
