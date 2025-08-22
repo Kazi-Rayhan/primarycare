@@ -347,6 +347,8 @@
         </div>
     </section>
 
+
+    
     <!-- Contact Section with Modern Design -->
     <section id="contact" class="py-16 bg-gray-50 dark:bg-dark-bg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
