@@ -245,7 +245,7 @@
                         </div>
                         <h3 class="text-xl font-semibold text-gray-900 dark:text-dark-text mb-1">{{ $provider->name }}</h3>
                         <p class="text-blue-600 dark:text-blue-400 mb-3">{{ $provider->title }}</p>
-                        <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">{{ Str::limit($provider->bio, 150) }}</p>
+                        <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">{!! Str::limit($provider->bio, 150) !!}</p>
                         <a href="{{ route('contact') }}?provider={{ $provider->id }}"
                             class="w-full bg-gradient-to-r from-blue-500 to-purple-500 text-white py-2 px-4 rounded-lg font-medium hover:from-blue-600 hover:to-purple-600 transition-all duration-300 inline-block text-center">
                             Make an Appointment
