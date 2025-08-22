@@ -80,9 +80,12 @@
                                     clip-rule="evenodd" />
                             </svg>
                         </div>
-                        <h3 class="text-xl font-semibold text-gray-900">{{ setting('covid.guidelines.title', 'COVID-19 Guidelines') }}</h3>
+                        <h3 class="text-xl font-semibold text-gray-900">
+                            {{ setting('covid.guidelines.title', 'COVID-19 Guidelines') }}</h3>
                     </div>
-                    <p class="text-gray-600">{{ setting('covid.guidelines.description', 'Stay informed about our latest COVID-19 protocols and safety measures to keep our patients and staff safe.') }}</p>
+                    <p class="text-gray-600">
+                        {{ setting('covid.guidelines.description', 'Stay informed about our latest COVID-19 protocols and safety measures to keep our patients and staff safe.') }}
+                    </p>
                 </div>
 
                 <div class="card bg-white/90 backdrop-blur-sm">
@@ -92,9 +95,12 @@
                                 <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
                         </div>
-                        <h3 class="text-xl font-semibold text-gray-900">{{ setting('covid.vaccine.title', 'COVID-19 Vaccine Information') }}</h3>
+                        <h3 class="text-xl font-semibold text-gray-900">
+                            {{ setting('covid.vaccine.title', 'COVID-19 Vaccine Information') }}</h3>
                     </div>
-                    <p class="text-gray-600">{{ setting('covid.vaccine.description', 'Learn about vaccine availability, scheduling, and important information for our patients.') }}</p>
+                    <p class="text-gray-600">
+                        {{ setting('covid.vaccine.description', 'Learn about vaccine availability, scheduling, and important information for our patients.') }}
+                    </p>
                 </div>
             </div>
         </div>
@@ -125,8 +131,11 @@
                                 clip-rule="evenodd" />
                         </svg>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-dark-text mb-2">{{ setting('about.features.comprehensive.title', 'Comprehensive Care') }}</h3>
-                    <p class="text-gray-600 dark:text-gray-300">{{ setting('about.features.comprehensive.description', 'From routine checkups to chronic disease management, we provide complete primary care services.') }}</p>
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-dark-text mb-2">
+                        {{ setting('about.features.comprehensive.title', 'Comprehensive Care') }}</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        {{ setting('about.features.comprehensive.description', 'From routine checkups to chronic disease management, we provide complete primary care services.') }}
+                    </p>
                 </div>
                 <div class="card text-center group hover:shadow-2xl transition-all duration-300">
                     <div
@@ -136,8 +145,11 @@
                                 clip-rule="evenodd" />
                         </svg>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-dark-text mb-2">{{ setting('about.features.patient_centered.title', 'Patient-Centered') }}</h3>
-                    <p class="text-gray-600 dark:text-gray-300">{{ setting('about.features.patient_centered.description', 'We listen to your concerns and work with you to develop personalized treatment plans.') }}</p>
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-dark-text mb-2">
+                        {{ setting('about.features.patient_centered.title', 'Patient-Centered') }}</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        {{ setting('about.features.patient_centered.description', 'We listen to your concerns and work with you to develop personalized treatment plans.') }}
+                    </p>
                 </div>
                 <div class="card text-center group hover:shadow-2xl transition-all duration-300">
                     <div
@@ -148,8 +160,11 @@
                                 clip-rule="evenodd" />
                         </svg>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-dark-text mb-2">{{ setting('about.features.convenient.title', 'Convenient Access') }}</h3>
-                    <p class="text-gray-600 dark:text-gray-300">{{ setting('about.features.convenient.description', 'Easy scheduling, telehealth options, and extended hours to fit your busy lifestyle.') }}</p>
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-dark-text mb-2">
+                        {{ setting('about.features.convenient.title', 'Convenient Access') }}</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        {{ setting('about.features.convenient.description', 'Easy scheduling, telehealth options, and extended hours to fit your busy lifestyle.') }}
+                    </p>
                 </div>
             </div>
         </div>
@@ -219,8 +234,7 @@
                 @foreach ($providers as $provider)
                     <div class="team-card group hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
                         <div class="relative mb-6">
-                            <img src="{{ $provider->photo_url }}"
-                                alt="{{ $provider->name }}"
+                            <img src="{{ $provider->photo_url }}" alt="{{ $provider->name }}"
                                 class="doctor-image mx-auto group-hover:scale-105 transition-transform duration-300">
                             <div class="absolute -bottom-2 left-1/2 transform -translate-x-1/2">
                                 <div
@@ -259,43 +273,37 @@
             </div>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
                 <!-- Opening Hours -->
-                <div class="hours-section">
-                    <h3 class="text-2xl font-semibold text-gray-900 dark:text-dark-text mb-6">Office Hours</h3>
-                    <div class="space-y-4">
-                        <div class="flex justify-between items-center py-3 border-b border-gray-200 dark:border-gray-700">
-                            <span class="font-medium text-gray-900 dark:text-dark-text">Monday - Friday</span>
-                            <span class="text-gray-600 dark:text-gray-300">8:00 AM - 6:00 PM</span>
-                        </div>
-                        <div class="flex justify-between items-center py-3 border-b border-gray-200 dark:border-gray-700">
-                            <span class="font-medium text-gray-900 dark:text-dark-text">Saturday</span>
-                            <span class="text-gray-600 dark:text-gray-300">9:00 AM - 2:00 PM</span>
-                        </div>
-                        <div class="flex justify-between items-center py-3 border-b border-gray-200 dark:border-gray-700">
-                            <span class="font-medium text-gray-900 dark:text-dark-text">Sunday</span>
-                            <span class="text-gray-600 dark:text-gray-300">Closed</span>
-                        </div>
-                       
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-dark-text mb-2">Office Hours</h3>
+                    <div class="space-y-1 text-gray-700 dark:text-gray-800">
+                        <p><span class="font-medium">Monday - Friday:</span>
+                            {{ setting('contact.hours.monday_friday', '8:00 AM - 6:00 PM') }}</p>
+                        <p><span class="font-medium">Saturday:</span>
+                            {{ setting('contact.hours.saturday', '9:00 AM - 2:00 PM') }}</p>
+                        <p><span class="font-medium">Sunday:</span>
+                            {{ setting('contact.hours.sunday', 'Closed') }}</p>
+                        <p><span class="font-medium">Holidays:</span>
+                            {{ setting('contact.hours.holidays', 'Closed (call for emergency)') }}</p>
                     </div>
-                   
                 </div>
 
                 <!-- Map -->
                 <div class="map-container">
                     <h3 class="text-2xl font-semibold text-gray-900 dark:text-dark-text mb-6">Our Location</h3>
                     <div class="bg-gray-200 dark:bg-gray-700 rounded-lg h-64 mb-4 overflow-hidden">
-                        <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3680.4685894148215!2d90.34812327408235!3d22.710818227892624!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x37553535680490d1%3A0x72ca830e6c94a34b!2sSohojware!5e0!3m2!1sen!2sbd!4v1754223193244!5m2!1sen!2sbd"
-                            class="w-full h-full"
-                            style="border:0;"
-                            allowfullscreen=""
-                            loading="lazy"
+                        <iframe
+                            src="{{ setting('contact.location.map_embed', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3680.4685894148215!2d90.34812327408235!3d22.710818227892624!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x37553535680490d1%3A0x72ca830e6c94a34b!2sSohojware!5e0!3m2!1sen!2sbd!4v1754223193244!5m2!1sen!2sbd') }}"
+                            class="w-full h-full" style="border:0;" allowfullscreen="" loading="lazy"
                             referrerpolicy="no-referrer-when-downgrade">
                         </iframe>
                     </div>
                     <div class="space-y-2 text-sm text-gray-600 dark:text-gray-300">
-                        <p><strong>Address:</strong> 123 Main Street, City, State 12345</p>
-                        <p><strong>Phone:</strong> (555) 123-4567</p>
-                        <p><strong>Email:</strong> info@primarycareclinic.com</p>
+                        <p><strong>Address:</strong>
+                            {{ setting('contact.address.street', '123 Main Street') }}{{ setting('contact.address.street', '123 Main Street') }}<br>{{ setting('contact.address.city', 'City') }},
+                            {{ setting('contact.address.state', 'State') }}
+                            {{ setting('contact.address.zip', '12345') }}</p>
+                        <p><strong>Phone:</strong> {{ setting('contact.phone.main', '(555) 123-4567') }}</p>
+                        <p><strong>Email:</strong> {{ setting('contact.email.general', 'info@primarycareclinic.com') }}</p>
                     </div>
                     <div class="mt-4">
                         <a href="#" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
@@ -333,7 +341,8 @@
                         class="card bg-white/90 backdrop-blur-sm group hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
                         <h3 class="text-lg font-semibold text-gray-900 mb-2">{{ $resource->title }}</h3>
                         <p class="text-sm text-gray-600 mb-4">{{ Str::limit(strip_tags($resource->content), 100) }}</p>
-                        <a href="{{ route('resources.show', $resource->slug) }}" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
+                        <a href="{{ route('resources.show', $resource->slug) }}"
+                            class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
                             Learn More
                             <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd"
@@ -348,7 +357,7 @@
     </section>
 
 
-    
+
     <!-- Contact Section with Modern Design -->
     <section id="contact" class="py-16 bg-gray-50 dark:bg-dark-bg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -380,7 +389,10 @@
                             </div>
                             <div>
                                 <h4 class="font-semibold text-gray-900 dark:text-dark-text">Address</h4>
-                                <p class="text-gray-600 dark:text-gray-300">{{ setting('contact.address.street', '123 Main Street') }}<br>{{ setting('contact.address.city', 'City') }}, {{ setting('contact.address.state', 'State') }} {{ setting('contact.address.zip', '12345') }}</p>
+                                <p class="text-gray-600 dark:text-gray-300">
+                                    {{ setting('contact.address.street', '123 Main Street') }}<br>{{ setting('contact.address.city', 'City') }},
+                                    {{ setting('contact.address.state', 'State') }}
+                                    {{ setting('contact.address.zip', '12345') }}</p>
                             </div>
                         </div>
                         <div class="flex items-start space-x-4">
@@ -393,7 +405,8 @@
                             </div>
                             <div>
                                 <h4 class="font-semibold text-gray-900 dark:text-dark-text">Phone</h4>
-                                <p class="text-gray-600 dark:text-gray-300">{{ setting('contact.phone.main', '(555) 123-4567') }}</p>
+                                <p class="text-gray-600 dark:text-gray-300">
+                                    {{ setting('contact.phone.main', '(555) 123-4567') }}</p>
                             </div>
                         </div>
                         <div class="flex items-start space-x-4">
@@ -406,7 +419,8 @@
                             </div>
                             <div>
                                 <h4 class="font-semibold text-gray-900 dark:text-dark-text">Email</h4>
-                                <p class="text-gray-600 dark:text-gray-300">{{ setting('contact.email.general', 'info@primarycareclinic.com') }}</p>
+                                <p class="text-gray-600 dark:text-gray-300">
+                                    {{ setting('contact.email.general', 'info@primarycareclinic.com') }}</p>
                             </div>
                         </div>
                     </div>
@@ -423,18 +437,19 @@
 
                 <!-- Contact Form -->
                 <div class="card bg-white shadow-xl">
-                    <h3 class="text-2xl font-semibold text-gray-900 dark:text-dark-text mb-6">{{ setting('contact.form.title', 'Send Us a Message') }}</h3>
-                    
-                    @if(session('success'))
+                    <h3 class="text-2xl font-semibold text-gray-900 dark:text-dark-text mb-6">
+                        {{ setting('contact.form.title', 'Send Us a Message') }}</h3>
+
+                    @if (session('success'))
                         <div class="mb-4 p-4 bg-green-100 border border-green-400 text-green-700 rounded">
                             {{ session('success') }}
                         </div>
                     @endif
 
-                    @if($errors->any())
+                    @if ($errors->any())
                         <div class="mb-4 p-4 bg-red-100 border border-red-400 text-red-700 rounded">
                             <ul class="list-disc list-inside">
-                                @foreach($errors->all() as $error)
+                                @foreach ($errors->all() as $error)
                                     <li>{{ $error }}</li>
                                 @endforeach
                             </ul>
@@ -448,14 +463,16 @@
                                 <label for="first_name"
                                     class="block text-sm font-medium text-gray-900 dark:text-dark-text mb-1">First
                                     Name</label>
-                                <input type="text" id="first_name" name="first_name" value="{{ old('first_name') }}" required
+                                <input type="text" id="first_name" name="first_name" value="{{ old('first_name') }}"
+                                    required
                                     class="w-full px-3 py-2 border border-gray-300 dark:border-dark-surface rounded-lg bg-white dark:bg-dark-surface text-gray-900 dark:text-dark-text focus:ring-2 focus:ring-blue-500 focus:border-transparent">
                             </div>
                             <div>
                                 <label for="last_name"
                                     class="block text-sm font-medium text-gray-900 dark:text-dark-text mb-1">Last
                                     Name</label>
-                                <input type="text" id="last_name" name="last_name" value="{{ old('last_name') }}" required
+                                <input type="text" id="last_name" name="last_name" value="{{ old('last_name') }}"
+                                    required
                                     class="w-full px-3 py-2 border border-gray-300 dark:border-dark-surface rounded-lg bg-white dark:bg-dark-surface text-gray-900 dark:text-dark-text focus:ring-2 focus:ring-blue-500 focus:border-transparent">
                             </div>
                         </div>

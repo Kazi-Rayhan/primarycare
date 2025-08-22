@@ -48,6 +48,7 @@ class ContactController extends Controller
 
         // Send email notification to admin
         $adminEmail = setting('contact.email.admin');
+        
         if ($adminEmail) {
             try {
                 Mail::to($adminEmail)->send(new ContactFormSubmitted([
