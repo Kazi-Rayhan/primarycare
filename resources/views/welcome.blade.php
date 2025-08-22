@@ -362,10 +362,10 @@
     <section id="contact" class="py-16 bg-gray-50 dark:bg-dark-bg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
-                <div
+                {{-- <div
                     class="inline-flex items-center px-4 py-2 bg-green-100 text-green-800 rounded-full text-sm font-medium mb-4">
                     {{ setting('contact.section.title', 'Contact Us') }}
-                </div>
+                </div> --}}
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-dark-text mb-4">
                     {{ setting('contact.section.title', 'Contact Us') }}
                 </h2>
