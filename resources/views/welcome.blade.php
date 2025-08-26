@@ -299,7 +299,7 @@
                     </div>
                     <div class="space-y-2 text-sm text-gray-600 dark:text-gray-300">
                         <p><strong>Address:</strong>
-                            {{ setting('contact.address.street', '123 Main Street') }}{{ setting('contact.address.street', '123 Main Street') }}<br>{{ setting('contact.address.city', 'City') }},
+                            {{ setting('contact.address.street', '123 Main Street') }}<br>{{ setting('contact.address.city', 'City') }},
                             {{ setting('contact.address.state', 'State') }}
                             {{ setting('contact.address.zip', '12345') }}</p>
                         <p><strong>Phone:</strong> {{ setting('contact.phone.main', '(555) 123-4567') }}</p>
