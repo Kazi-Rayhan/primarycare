@@ -340,7 +340,7 @@
                     <div
                         class="card bg-white/90 backdrop-blur-sm group hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
                         <h3 class="text-lg font-semibold text-gray-900 mb-2">{{ $resource->title }}</h3>
-                        <p class="text-sm text-gray-600 mb-4">{{ Str::limit(strip_tags($resource->content), 100) }}</p>
+                        <p class="text-sm text-gray-600 mb-4">{!! Str::limit(strip_tags($resource->content), 100) !!}</p>
                         <a href="{{ route('resources.show', $resource->slug) }}"
                             class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
                             Learn More

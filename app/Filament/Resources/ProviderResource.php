@@ -19,8 +19,12 @@ class ProviderResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-user-group';
 
     protected static ?string $navigationGroup = 'Clinic Management';
+    protected static ?string $navigationLabel = 'Staffs';
 
     protected static ?int $navigationSort = 1;
+
+    protected static ?string $modelLabel = 'Staff';
+    protected static ?string $pluralModelLabel = 'Staffs';
 
     public static function form(Form $form): Form
     {
