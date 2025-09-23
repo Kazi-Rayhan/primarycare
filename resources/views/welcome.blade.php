@@ -1,5 +1,5 @@
 @extends('layouts.app')
-<style>
+{{-- <style>
     @keyframes slide-up {
         from {
             opacity: 0;
@@ -15,11 +15,11 @@
     .animate-slide-up {
         animation: slide-up 1s ease-out both;
     }
-</style>
+</style> --}}
 @section('content')
 
     <!-- Image Slider Section -->
-    <section class="relative w-full overflow-hidden py-6">
+    <section class="relative w-full overflow-hidden mt-6">
         <div id="homepage-slider" class="flex transition-transform duration-700 ease-in-out">
 
             @foreach (setting('homepage.slider', []) as $slide)
