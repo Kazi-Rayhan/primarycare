@@ -19,7 +19,7 @@
 @section('content')
 
     <!-- Image Slider Section -->
-    <section class="relative w-full overflow-hidden mt-5">
+    <section class="relative w-full overflow-hidden py-6">
         <div id="homepage-slider" class="flex transition-transform duration-700 ease-in-out">
 
             @foreach (setting('homepage.slider', []) as $slide)
@@ -29,7 +29,7 @@
                         class="w-full h-[600px] object-cover">
 
                     <!-- Content Overlay -->
-                    {{-- @if (!empty($slide['title']) || !empty($slide['description']))
+                    @if (!empty($slide['title']) || !empty($slide['description']))
                         <div
                             class="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent flex items-center">
                             <div class="max-w-2xl px-6 md:px-12 lg:px-20 text-left space-y-4 animate-slide-up">
@@ -42,7 +42,7 @@
 
                             </div>
                         </div>
-                    @endif --}}
+                    @endif
                 </div>
             @endforeach
 
