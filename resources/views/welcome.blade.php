@@ -1,5 +1,5 @@
 @extends('layouts.app')
-{{-- <style>
+<style>
     @keyframes slide-up {
         from {
             opacity: 0;
@@ -15,7 +15,7 @@
     .animate-slide-up {
         animation: slide-up 1s ease-out both;
     }
-</style> --}}
+</style>
 @section('content')
 
     <!-- Image Slider Section -->
