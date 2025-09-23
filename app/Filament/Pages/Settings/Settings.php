@@ -1,19 +1,19 @@
 <?php
-
 namespace App\Filament\Pages\Settings;
 
 use Closure;
-use Filament\Forms\Components\Tabs;
-use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\Textarea;
-use Filament\Forms\Components\Section;
-use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Grid;
+use Filament\Forms\Components\Repeater;
+use Filament\Forms\Components\Section;
+use Filament\Forms\Components\Tabs;
+use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TextInput;
 use Outerweb\FilamentSettings\Filament\Pages\Settings as BaseSettings;
 
 class Settings extends BaseSettings
 {
-    public function schema(): array|Closure
+    public function schema(): array | Closure
     {
         return [
             Tabs::make('Settings')
@@ -64,7 +64,7 @@ class Settings extends BaseSettings
                                         ->required(),
                                 ]),
                         ]),
-                    
+
                     Tabs\Tab::make('Contact Information')
                         ->schema([
                             Section::make('Address')
@@ -91,7 +91,7 @@ class Settings extends BaseSettings
                                                 ->required(),
                                         ]),
                                 ]),
-                            
+
                             Section::make('Phone Numbers')
                                 ->schema([
                                     Grid::make(3)
@@ -106,7 +106,7 @@ class Settings extends BaseSettings
                                                 ->label('Fax'),
                                         ]),
                                 ]),
-                            
+
                             Section::make('Email Addresses')
                                 ->schema([
                                     Grid::make(3)
@@ -134,7 +134,7 @@ class Settings extends BaseSettings
                                         ]),
                                 ]),
                         ]),
-                    
+
                     Tabs\Tab::make('Office Hours')
                         ->schema([
                             Section::make('Business Hours')
@@ -159,7 +159,7 @@ class Settings extends BaseSettings
                                         ]),
                                 ]),
                         ]),
-                    
+
                     Tabs\Tab::make('Location')
                         ->schema([
                             Section::make('Location Details')
@@ -179,7 +179,7 @@ class Settings extends BaseSettings
                                         ->required(),
                                 ]),
                         ]),
-                    
+
                     Tabs\Tab::make('About')
                         ->schema([
                             Section::make('About Information')
@@ -194,192 +194,188 @@ class Settings extends BaseSettings
                                         ->required(),
                                 ]),
                         ]),
-                    
+
                     // FAQ tab removed - FAQs are now managed through separate FAQ resource
-                    
-                                         Tabs\Tab::make('Emergency')
-                         ->schema([
-                             Section::make('Emergency Information')
-                                 ->schema([
-                                     TextInput::make('emergency.title')
-                                         ->label('Emergency Title')
-                                         ->required(),
-                                     Textarea::make('emergency.description')
-                                         ->label('Emergency Description')
-                                         ->rows(3)
-                                         ->required(),
-                                     Textarea::make('emergency.note')
-                                         ->label('Emergency Note')
-                                         ->rows(2)
-                                         ->required(),
-                                 ]),
-                         ]),
-                     
-                     Tabs\Tab::make('Content')
-                         ->schema([
-                             Section::make('COVID-19 Information')
-                                 ->schema([
-                                     Grid::make(2)
-                                         ->schema([
-                                             TextInput::make('covid.guidelines.title')
-                                                 ->label('Guidelines Title')
-                                                 ->required(),
-                                             TextInput::make('covid.vaccine.title')
-                                                 ->label('Vaccine Title')
-                                                 ->required(),
-                                         ]),
-                                     Grid::make(2)
-                                         ->schema([
-                                             Textarea::make('covid.guidelines.description')
-                                                 ->label('Guidelines Description')
-                                                 ->rows(3)
-                                                 ->required(),
-                                             Textarea::make('covid.vaccine.description')
-                                                 ->label('Vaccine Description')
-                                                 ->rows(3)
-                                                 ->required(),
-                                         ]),
-                                 ]),
-                             
-                             Section::make('About Section')
-                                 ->schema([
-                                     TextInput::make('about.section.title')
-                                         ->label('About Section Title')
-                                         ->required(),
-                                     Textarea::make('about.section.description')
-                                         ->label('About Section Description')
-                                         ->rows(3)
-                                         ->required(),
-                                 ]),
-                             
-                             Section::make('About Features')
-                                 ->schema([
-                                     Grid::make(3)
-                                         ->schema([
-                                             TextInput::make('about.features.comprehensive.title')
-                                                 ->label('Comprehensive Care Title')
-                                                 ->required(),
-                                             TextInput::make('about.features.patient_centered.title')
-                                                 ->label('Patient-Centered Title')
-                                                 ->required(),
-                                             TextInput::make('about.features.convenient.title')
-                                                 ->label('Convenient Access Title')
-                                                 ->required(),
-                                         ]),
-                                     Grid::make(3)
-                                         ->schema([
-                                             Textarea::make('about.features.comprehensive.description')
-                                                 ->label('Comprehensive Care Description')
-                                                 ->rows(2)
-                                                 ->required(),
-                                             Textarea::make('about.features.patient_centered.description')
-                                                 ->label('Patient-Centered Description')
-                                                 ->rows(2)
-                                                 ->required(),
-                                             Textarea::make('about.features.convenient.description')
-                                                 ->label('Convenient Access Description')
-                                                 ->rows(2)
-                                                 ->required(),
-                                         ]),
-                                 ]),
-                             
-                             Section::make('Services Section')
-                                 ->schema([
-                                     TextInput::make('services.section.title')
-                                         ->label('Services Section Title')
-                                         ->required(),
-                                     Textarea::make('services.section.description')
-                                         ->label('Services Section Description')
-                                         ->rows(3)
-                                         ->required(),
-                                 ]),
-                             
-                             Section::make('Team Section')
-                                 ->schema([
-                                     TextInput::make('team.section.title')
-                                         ->label('Team Section Title')
-                                         ->required(),
-                                     Textarea::make('team.section.description')
-                                         ->label('Team Section Description')
-                                         ->rows(3)
-                                         ->required(),
-                                 ]),
-                             
-                             Section::make('Contact Section')
-                                 ->schema([
-                                     TextInput::make('contact.section.title')
-                                         ->label('Contact Section Title')
-                                         ->required(),
-                                     Textarea::make('contact.section.description')
-                                         ->label('Contact Section Description')
-                                         ->rows(3)
-                                         ->required(),
-                                     TextInput::make('contact.form.title')
-                                         ->label('Contact Form Title')
-                                         ->required(),
-                                 ]),
-                             
-                             Section::make('History/Timeline')
-                                 ->schema([
-                                     TextInput::make('history.section.title')
-                                         ->label('History Section Title')
-                                         ->required(),
-                                     Textarea::make('history.section.description')
-                                         ->label('History Section Description')
-                                         ->rows(3)
-                                         ->required(),
-                                 ]),
-                             
-                             Section::make('Timeline Events')
-                                 ->schema([
-                                     Grid::make(3)
-                                         ->schema([
-                                             TextInput::make('history.timeline.2018.title')
-                                                 ->label('2018 Title')
-                                                 ->required(),
-                                             TextInput::make('history.timeline.2020.title')
-                                                 ->label('2020 Title')
-                                                 ->required(),
-                                             TextInput::make('history.timeline.2024.title')
-                                                 ->label('2024 Title')
-                                                 ->required(),
-                                         ]),
-                                     Grid::make(3)
-                                         ->schema([
-                                             Textarea::make('history.timeline.2018.description')
-                                                 ->label('2018 Description')
-                                                 ->rows(2)
-                                                 ->required(),
-                                             Textarea::make('history.timeline.2020.description')
-                                                 ->label('2020 Description')
-                                                 ->rows(2)
-                                                 ->required(),
-                                             Textarea::make('history.timeline.2024.description')
-                                                 ->label('2024 Description')
-                                                 ->rows(2)
-                                                 ->required(),
-                                         ]),
-                                 ]),
-                             
-                             Section::make('About Page')
-                                 ->schema([
-                                     TextInput::make('about.page.title')
-                                         ->label('About Page Title')
-                                         ->required(),
-                                     Textarea::make('about.page.description')
-                                         ->label('About Page Description')
-                                         ->rows(3)
-                                         ->required(),
-                                     TextInput::make('about.team.image.title')
-                                         ->label('Team Image Title')
-                                         ->required(),
-                                     Textarea::make('about.team.image.description')
-                                         ->label('Team Image Description')
-                                         ->rows(2)
-                                         ->required(),
-                                 ]),
-                         ]),
+
+                    Tabs\Tab::make('Emergency')
+                        ->schema([
+                            Section::make('Emergency Information')
+                                ->schema([
+                                    TextInput::make('emergency.title')
+                                        ->label('Emergency Title')
+                                        ->required(),
+                                    Textarea::make('emergency.description')
+                                        ->label('Emergency Description')
+                                        ->rows(3)
+                                        ->required(),
+                                    Textarea::make('emergency.note')
+                                        ->label('Emergency Note')
+                                        ->rows(2)
+                                        ->required(),
+                                ]),
+                        ]),
+
+                    Tabs\Tab::make('Slider')
+                        ->schema([
+                            Section::make('Homepage Slider')
+                                ->schema([
+                                    Repeater::make('homepage.slider')
+                                        ->label('Slider Items')
+                                        ->schema([
+                                            FileUpload::make('image')
+                                                ->label('Slide Image')
+                                                ->image()
+                                                ->directory('sliders')
+                                                ->required(),
+
+                                        
+                                        ])
+                                        ->columns(1)
+                                        ->collapsible(),
+                                ]),
+                        ]),
+                    Tabs\Tab::make('Content')
+                        ->schema([
+
+                            Section::make('About Section')
+                                ->schema([
+                                    TextInput::make('about.section.title')
+                                        ->label('About Section Title')
+                                        ->required(),
+                                    Textarea::make('about.section.description')
+                                        ->label('About Section Description')
+                                        ->rows(3)
+                                        ->required(),
+                                ]),
+
+                            Section::make('About Features')
+                                ->schema([
+                                    Grid::make(3)
+                                        ->schema([
+                                            TextInput::make('about.features.comprehensive.title')
+                                                ->label('Comprehensive Care Title')
+                                                ->required(),
+                                            TextInput::make('about.features.patient_centered.title')
+                                                ->label('Patient-Centered Title')
+                                                ->required(),
+                                            TextInput::make('about.features.convenient.title')
+                                                ->label('Convenient Access Title')
+                                                ->required(),
+                                        ]),
+                                    Grid::make(3)
+                                        ->schema([
+                                            Textarea::make('about.features.comprehensive.description')
+                                                ->label('Comprehensive Care Description')
+                                                ->rows(2)
+                                                ->required(),
+                                            Textarea::make('about.features.patient_centered.description')
+                                                ->label('Patient-Centered Description')
+                                                ->rows(2)
+                                                ->required(),
+                                            Textarea::make('about.features.convenient.description')
+                                                ->label('Convenient Access Description')
+                                                ->rows(2)
+                                                ->required(),
+                                        ]),
+                                ]),
+
+                            Section::make('Services Section')
+                                ->schema([
+                                    TextInput::make('services.section.title')
+                                        ->label('Services Section Title')
+                                        ->required(),
+                                    Textarea::make('services.section.description')
+                                        ->label('Services Section Description')
+                                        ->rows(3)
+                                        ->required(),
+                                ]),
+
+                            Section::make('Team Section')
+                                ->schema([
+                                    TextInput::make('team.section.title')
+                                        ->label('Team Section Title')
+                                        ->required(),
+                                    Textarea::make('team.section.description')
+                                        ->label('Team Section Description')
+                                        ->rows(3)
+                                        ->required(),
+                                ]),
+
+                            Section::make('Contact Section')
+                                ->schema([
+                                    TextInput::make('contact.section.title')
+                                        ->label('Contact Section Title')
+                                        ->required(),
+                                    Textarea::make('contact.section.description')
+                                        ->label('Contact Section Description')
+                                        ->rows(3)
+                                        ->required(),
+                                    TextInput::make('contact.form.title')
+                                        ->label('Contact Form Title')
+                                        ->required(),
+                                ]),
+
+                            Section::make('History/Timeline')
+                                ->schema([
+                                    TextInput::make('history.section.title')
+                                        ->label('History Section Title')
+                                        ->required(),
+                                    Textarea::make('history.section.description')
+                                        ->label('History Section Description')
+                                        ->rows(3)
+                                        ->required(),
+                                ]),
+
+                            Section::make('Timeline Events')
+                                ->schema([
+                                    Grid::make(3)
+                                        ->schema([
+                                            TextInput::make('history.timeline.2018.title')
+                                                ->label('2018 Title')
+                                                ->required(),
+                                            TextInput::make('history.timeline.2020.title')
+                                                ->label('2020 Title')
+                                                ->required(),
+                                            TextInput::make('history.timeline.2024.title')
+                                                ->label('2024 Title')
+                                                ->required(),
+                                        ]),
+                                    Grid::make(3)
+                                        ->schema([
+                                            Textarea::make('history.timeline.2018.description')
+                                                ->label('2018 Description')
+                                                ->rows(2)
+                                                ->required(),
+                                            Textarea::make('history.timeline.2020.description')
+                                                ->label('2020 Description')
+                                                ->rows(2)
+                                                ->required(),
+                                            Textarea::make('history.timeline.2024.description')
+                                                ->label('2024 Description')
+                                                ->rows(2)
+                                                ->required(),
+                                        ]),
+                                ]),
+
+                            Section::make('About Page')
+                                ->schema([
+                                    TextInput::make('about.page.title')
+                                        ->label('About Page Title')
+                                        ->required(),
+                                    Textarea::make('about.page.description')
+                                        ->label('About Page Description')
+                                        ->rows(3)
+                                        ->required(),
+                                    TextInput::make('about.team.image.title')
+                                        ->label('Team Image Title')
+                                        ->required(),
+                                    Textarea::make('about.team.image.description')
+                                        ->label('Team Image Description')
+                                        ->rows(2)
+                                        ->required(),
+                                ]),
+                        ]),
                 ]),
         ];
     }
-} 
+}

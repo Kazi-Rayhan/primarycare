@@ -1,119 +1,75 @@
 @extends('layouts.app')
+<style>
+    @keyframes slide-up {
+        from {
+            opacity: 0;
+            transform: translateY(40px);
+        }
 
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .animate-slide-up {
+        animation: slide-up 1s ease-out both;
+    }
+</style>
 @section('content')
-    <!-- Hero Section with Real Images -->
-    {{-- <section class="hero-gradient min-h-screen flex items-center relative overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-br from-blue-50 via-light-purple to-blue-100"></div>
-        <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
-        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <!-- Left Content -->
-                <div class="text-center lg:text-left">
-                    <div
-                        class="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-medium mb-6">
-                        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd"
-                                d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                clip-rule="evenodd" />
-                        </svg>
-                        Welcome to Primary Care Clinic
-                    </div>
-                    <h1 class="text-4xl md:text-6xl font-bold text-gray-900 dark:text-dark-text mb-6 animate-fade-in">
-                        {{ setting('hero.title', 'Local Doctors Who Care') }}
-                    </h1>
-                    <p
-                        class="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto lg:mx-0 animate-slide-up">
-                        {{ setting('hero.subtitle', 'Comprehensive primary care services for you and your family. We\'re here to keep you healthy and provide the care you deserve.') }}
-                    </p>
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-scale-in">
-                        <a href="#contact" class="btn-primary inline-flex items-center">
-                            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd"
-                                    d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
-                                    clip-rule="evenodd" />
-                            </svg>
-                            Make an Appointment
-                        </a>
-                        <a href="#services" class="btn-secondary inline-flex items-center">
-                            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
-                            Our Services
-                        </a>
-                    </div>
-                </div>
 
-                <!-- Right Image with Real Doctor -->
-                <div class="relative block ">
-                    <div class="relative">
+    <!-- Image Slider Section -->
+    <section class="relative w-full overflow-hidden mt-5">
+        <div id="homepage-slider" class="flex transition-transform duration-700 ease-in-out">
+
+            @foreach (setting('homepage.slider', []) as $slide)
+                <div class="w-full flex-shrink-0 relative">
+                    <!-- Background Image -->
+                    <img src="{{ Storage::url($slide['image']) }}" alt="{{ $slide['title'] ?? 'Slide' }}"
+                        class="w-full h-[600px] object-cover">
+
+                    <!-- Content Overlay -->
+                    {{-- @if (!empty($slide['title']) || !empty($slide['description']))
                         <div
-                            class="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-500 rounded-2xl transform rotate-3">
-                        </div>
-                        <div class="relative bg-white rounded-2xl p-5 shadow-2xl">
-                            <div class="w-full h-96 bg-gradient-to-br from-blue-100 to-purple-100 rounded-xl overflow-hidden">
-                                @php
-                                    $heroImage = setting('hero.image');
-                                    $imageUrl = $heroImage && Storage::exists($heroImage) 
-                                        ? Storage::url($heroImage) 
-                                        : 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80';
-                                @endphp
-                                <img src="{{ $imageUrl }}"
-                                    alt="Doctor with patient" class="w-full h-full object-cover rounded-xl">
+                            class="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent flex items-center">
+                            <div class="max-w-2xl px-6 md:px-12 lg:px-20 text-left space-y-4 animate-slide-up">
+                                <h2 class="text-4xl md:text-6xl font-extrabold text-white leading-tight drop-shadow-md">
+                                    {{ $slide['title'] ?? '' }}
+                                </h2>
+                                <p class="text-lg md:text-xl text-gray-200 max-w-xl leading-relaxed drop-shadow">
+                                    {{ $slide['description'] ?? '' }}
+                                </p>
+
                             </div>
                         </div>
-                    </div>
+                    @endif --}}
                 </div>
-            </div>
-        </div>
-    </section> --}}
+            @endforeach
 
-    <!-- COVID-19 Information Section -->
-    <section class="py-16 bg-gradient-to-r from-blue-500 to-teal-500">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="card bg-white/90 backdrop-blur-sm">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center mr-4">
-                            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd"
-                                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
-                                    clip-rule="evenodd" />
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-semibold text-gray-900">
-                            {{ setting('covid.guidelines.title', 'COVID-19 Guidelines') }}</h3>
-                    </div>
-                    <p class="text-gray-600">
-                        {{ setting('covid.guidelines.description', 'Stay informed about our latest COVID-19 protocols and safety measures to keep our patients and staff safe.') }}
-                    </p>
-                </div>
-
-                <div class="card bg-white/90 backdrop-blur-sm">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 bg-teal-500 rounded-lg flex items-center justify-center mr-4">
-                            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-semibold text-gray-900">
-                            {{ setting('covid.vaccine.title', 'COVID-19 Vaccine Information') }}</h3>
-                    </div>
-                    <p class="text-gray-600">
-                        {{ setting('covid.vaccine.description', 'Learn about vaccine availability, scheduling, and important information for our patients.') }}
-                    </p>
-                </div>
-            </div>
         </div>
+
+        <!-- Controls -->
+        <button onclick="prevSlide()"
+            class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 text-2xl font-bold px-3 py-2 rounded-full shadow">
+            ‹
+        </button>
+        <button onclick="nextSlide()"
+            class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 text-2xl font-bold px-3 py-2 rounded-full shadow">
+            ›
+        </button>
     </section>
+
+
+
 
     <!-- About Section with Modern Cards -->
     <section id="about" class="py-16 bg-gray-50 dark:bg-dark-bg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
-                <div
+                {{-- <div
                     class="inline-flex items-center px-4 py-2 bg-light-purple text-blue-800 rounded-full text-sm font-medium mb-4">
                     About Us
-                </div>
+                </div> --}}
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-dark-text mb-4">
                     {{ setting('about.section.title', 'About Primary Care Clinic') }}
                 </h2>
@@ -512,4 +468,26 @@
             </div>
         </div>
     </section>
+    <script>
+        const slider = document.getElementById('homepage-slider');
+        let currentIndex = 0;
+
+        function showSlide(index) {
+            const totalSlides = slider.children.length;
+            if (index < 0) index = totalSlides - 1;
+            if (index >= totalSlides) index = 0;
+            currentIndex = index;
+            slider.style.transform = `translateX(-${index * 100}%)`;
+        }
+
+        function nextSlide() {
+            showSlide(currentIndex + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentIndex - 1);
+        }
+
+        setInterval(nextSlide, 6000); // auto-slide every 6s
+    </script>
 @endsection
