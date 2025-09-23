@@ -274,18 +274,27 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
                 <!-- Opening Hours -->
                 <div>
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-dark-text mb-2">Office Hours</h3>
-                    <div class="space-y-1 text-gray-700 dark:text-gray-800">
-                        <p><span class="font-medium">Monday - Friday:</span>
-                            {{ setting('contact.hours.monday_friday', '8:00 AM - 6:00 PM') }}</p>
-                        <p><span class="font-medium">Saturday:</span>
-                            {{ setting('contact.hours.saturday', '9:00 AM - 2:00 PM') }}</p>
-                        <p><span class="font-medium">Sunday:</span>
-                            {{ setting('contact.hours.sunday', 'Closed') }}</p>
-                        <p><span class="font-medium">Holidays:</span>
-                            {{ setting('contact.hours.holidays', 'Closed (call for emergency)') }}</p>
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Office Hours</h3>
+                    <div class="space-y-1 text-gray-600 dark:text-gray-300">
+                        <p>
+                            <span class="font-medium">Monday - Friday:</span>
+                            {{ setting('contact.hours.monday_friday', '8:00 AM - 6:00 PM') }}
+                        </p>
+                        <p>
+                            <span class="font-medium">Saturday:</span>
+                            {{ setting('contact.hours.saturday', '9:00 AM - 2:00 PM') }}
+                        </p>
+                        <p>
+                            <span class="font-medium">Sunday:</span>
+                            {{ setting('contact.hours.sunday', 'Closed') }}
+                        </p>
+                        <p>
+                            <span class="font-medium">Holidays:</span>
+                            {{ setting('contact.hours.holidays', 'Closed (call for emergency)') }}
+                        </p>
                     </div>
                 </div>
+
 
                 <!-- Map -->
                 <div class="map-container">

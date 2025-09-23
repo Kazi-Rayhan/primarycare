@@ -55,7 +55,7 @@
                         @if (setting('site.logo'))
                             <img src="{{ asset('storage/' . setting('site.logo')) }}"
                                 alt="{{ setting('site.name', 'Primary Care Clinic') }}"
-                                class="h-10 w-auto max-w-[200px] object-contain">
+                                class="h-16 w-auto max-w-[200px] object-contain">
                         @else
                             <div
                                 class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-500 rounded-lg flex items-center justify-center">
