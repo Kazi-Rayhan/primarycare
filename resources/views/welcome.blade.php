@@ -19,7 +19,7 @@
 @section('content')
 
     <!-- Image Slider Section -->
-    <section class="relative w-full overflow-hidden mt-6">
+    <section class="relative w-full overflow-hidden mt-5">
         <div id="homepage-slider" class="flex transition-transform duration-700 ease-in-out">
 
             @foreach (setting('homepage.slider', []) as $slide)
