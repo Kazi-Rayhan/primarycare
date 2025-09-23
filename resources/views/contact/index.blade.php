@@ -39,13 +39,13 @@
                             <div>
                                 <h3 class="text-xl font-semibold text-gray-900 dark:text-dark-text mb-2">Visit Our Clinic
                                 </h3>
-                                <p class="text-gray-700 dark:text-gray-800 mb-1">
+                                <p class="text-gray-600 dark:text-gray-300 mb-1">
                                     {{ setting('contact.address.street', '123 Main Street') }}</p>
-                                <p class="text-gray-700 dark:text-gray-800 mb-1">
+                                <p class="text-gray-600 dark:text-gray-300 mb-1">
                                     {{ setting('contact.address.city', 'City') }},
                                     {{ setting('contact.address.state', 'State') }}
                                     {{ setting('contact.address.zip', '12345') }}</p>
-                                <p class="text-gray-700 dark:text-gray-800">
+                                <p class="text-gray-600 dark:text-gray-300">
                                     {{ setting('contact.address.country', 'United States') }}</p>
                             </div>
                         </div>
@@ -61,11 +61,11 @@
                             </div>
                             <div>
                                 <h3 class="text-xl font-semibold text-gray-900 dark:text-dark-text mb-2">Call Us</h3>
-                                <p class="text-gray-700 dark:text-gray-800 mb-1">Main Office:
+                                <p class="text-gray-600 dark:text-gray-300 mb-1">Main Office:
                                     {{ setting('contact.phone.main', '(555) 123-4567') }}</p>
-                                <p class="text-gray-700 dark:text-gray-800 mb-1">Emergency:
+                                <p class="text-gray-600 dark:text-gray-300 mb-1">Emergency:
                                     {{ setting('contact.phone.emergency', '(555) 911-0000') }}</p>
-                                <p class="text-gray-700 dark:text-gray-800">Fax:
+                                <p class="text-gray-600 dark:text-gray-300">Fax:
                                     {{ setting('contact.phone.fax', '(555) 123-4568') }}</p>
                             </div>
                         </div>
@@ -81,7 +81,7 @@
                             </div>
                             <div>
                                 <h3 class="text-xl font-semibold text-gray-900 dark:text-dark-text mb-2">Email Us</h3>
-                                <p class="text-gray-700 dark:text-gray-800 mb-1">General:
+                                <p class="text-gray-600 dark:text-gray-300 mb-1">General:
                                     {{ setting('contact.email.general', 'info@primarycareclinic.com') }}</p>
                                 {{-- <p class="text-gray-700 dark:text-gray-800 mb-1">Appointments: {{ setting('contact.email.appointments', 'appointments@primarycareclinic.com') }}</p>
                                 <p class="text-gray-700 dark:text-gray-800">Billing: {{ setting('contact.email.billing', 'billing@primarycareclinic.com') }}</p> --}}
@@ -100,7 +100,7 @@
                             </div>
                             <div>
                                 <h3 class="text-xl font-semibold text-gray-900 dark:text-dark-text mb-2">Office Hours</h3>
-                                <div class="space-y-1 text-gray-700 dark:text-gray-800">
+                                <div class="space-y-1 text-gray-600 dark:text-gray-300">
                                     <p><span class="font-medium">Monday - Friday:</span>
                                         {{ setting('contact.hours.monday_friday', '8:00 AM - 6:00 PM') }}</p>
                                     <p><span class="font-medium">Saturday:</span>
@@ -247,7 +247,7 @@
                     </label>
                     <textarea id="message" name="message" rows="6" required
                         placeholder="Please describe your inquiry or appointment request..."
-                        class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-dark-surface text-gray-900 dark:text-dark-text focus:ring-2 focus:ring-blue-500 focus:border-transparent"></textarea>
+                        class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-dark-surface text-gray-900 dark:text-dark-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent"></textarea>
                     @error('message')
                         <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
                     @enderror
