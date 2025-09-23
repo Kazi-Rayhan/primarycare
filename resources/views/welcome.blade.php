@@ -29,7 +29,7 @@
                         class="w-full h-[600px] object-cover">
 
                     <!-- Content Overlay -->
-                    @if (!empty($slide['title']) || !empty($slide['description']))
+                    {{-- @if (!empty($slide['title']) || !empty($slide['description']))
                         <div
                             class="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent flex items-center">
                             <div class="max-w-2xl px-6 md:px-12 lg:px-20 text-left space-y-4 animate-slide-up">
@@ -42,7 +42,7 @@
 
                             </div>
                         </div>
-                    @endif
+                    @endif --}}
                 </div>
             @endforeach
 
