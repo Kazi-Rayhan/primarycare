@@ -19,6 +19,7 @@
 @section('content')
 
     <!-- Image Slider Section -->
+
     <section class="relative w-full overflow-hidden" style="margin-top: 15px">
         <div id="homepage-slider" class="flex transition-transform duration-700 ease-in-out">
 
@@ -26,23 +27,9 @@
                 <div class="w-full flex-shrink-0 relative">
                     <!-- Background Image -->
                     <img src="{{ Storage::url($slide['image']) }}" alt="{{ $slide['title'] ?? 'Slide' }}"
-                        class="w-full h-[600px] object-cover">
+                        class="w-full h-[600px] object-contain bg-white mx-auto">
 
-                    <!-- Content Overlay -->
-                    {{-- @if (!empty($slide['title']) || !empty($slide['description']))
-                        <div
-                            class="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent flex items-center">
-                            <div class="max-w-2xl px-6 md:px-12 lg:px-20 text-left space-y-4 animate-slide-up">
-                                <h2 class="text-4xl md:text-6xl font-extrabold text-white leading-tight drop-shadow-md">
-                                    {{ $slide['title'] ?? '' }}
-                                </h2>
-                                <p class="text-lg md:text-xl text-gray-200 max-w-xl leading-relaxed drop-shadow">
-                                    {{ $slide['description'] ?? '' }}
-                                </p>
 
-                            </div>
-                        </div>
-                    @endif --}}
                 </div>
             @endforeach
 
@@ -58,6 +45,7 @@
             ›
         </button>
     </section>
+
 
 
 
