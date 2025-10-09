@@ -246,7 +246,7 @@
                         <h3 class="text-xl font-semibold text-gray-900 dark:text-dark-text mb-1">{{ $provider->name }}
                         </h3>
                         <p class="text-blue-600 dark:text-blue-400 mb-3">{{ $provider->title }}</p>
-                        <p class="text-sm text-gray-700 dark:text-gray-300 mb-4">{!! Str::limit($provider->bio, 150) !!}p>
+                        <p class="text-sm text-gray-700 dark:text-gray-300 mb-4">{!! Str::limit($provider->bio, 150) !!}</p>
 
                     </div>
                 @endforeach
