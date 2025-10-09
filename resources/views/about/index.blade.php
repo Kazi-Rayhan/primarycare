@@ -104,8 +104,11 @@
                         <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
                             alt="Medical team" class="w-full h-64 object-cover rounded-xl">
                         <div class="mt-6 text-center">
-                            <h3 class="text-xl font-semibold text-gray-900 dark:text-dark-text mb-2">{{ setting('about.team.image.title', 'Our Team') }}</h3>
-                            <p class="text-gray-900 dark:text-gray-300">{{ setting('about.team.image.description', 'Dedicated healthcare professionals committed to your health') }}</p>
+                            <h3 class="text-xl font-semibold text-gray-900 dark:text-dark-text mb-2">
+                                {{ setting('about.team.image.title', 'Our Team') }}</h3>
+                            <p class="text-gray-900 dark:text-gray-300">
+                                {{ setting('about.team.image.description', 'Dedicated healthcare professionals committed to your health') }}
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -117,7 +120,8 @@
     <section class="py-16 bg-gray-50 dark:bg-gray-900">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-white dark:text-dark-text mb-4">{{ setting('history.section.title', 'Our Story') }}</h2>
+                <h2 class="text-3xl font-bold text-white dark:text-dark-text mb-4">
+                    {{ setting('history.section.title', 'Our Story') }}</h2>
                 <p class="text-lg text-white dark:text-gray-300 max-w-3xl mx-auto">
                     {{ setting('history.section.description', 'Founded with a vision to provide accessible, high-quality healthcare to our community.') }}
                 </p>
@@ -132,8 +136,11 @@
                                 clip-rule="evenodd" />
                         </svg>
                     </div>
-                    <h3 class="text-xl font-semibold text-white dark:text-dark-text mb-2">{{ setting('history.timeline.2018.title', '2018') }}</h3>
-                    <p class="text-gray-700 dark:text-gray-300">{{ setting('history.timeline.2018.description', 'Founded with a small team of dedicated healthcare professionals') }}</p>
+                    <h3 class="text-xl font-semibold text-white dark:text-dark-text mb-2">
+                        {{ setting('history.timeline.2018.title', '2018') }}</h3>
+                    <p class="text-gray-700 dark:text-gray-300">
+                        {{ setting('history.timeline.2018.description', 'Founded with a small team of dedicated healthcare professionals') }}
+                    </p>
                 </div>
 
                 <div class="text-center">
@@ -144,8 +151,11 @@
                                 clip-rule="evenodd" />
                         </svg>
                     </div>
-                    <h3 class="text-xl font-semibold text-white dark:text-dark-text mb-2">{{ setting('history.timeline.2020.title', '2020') }}</h3>
-                    <p class="text-gray-700 dark:text-gray-300">{{ setting('history.timeline.2020.description', 'Expanded services and added telehealth capabilities') }}</p>
+                    <h3 class="text-xl font-semibold text-white dark:text-dark-text mb-2">
+                        {{ setting('history.timeline.2020.title', '2020') }}</h3>
+                    <p class="text-gray-700 dark:text-gray-300">
+                        {{ setting('history.timeline.2020.description', 'Expanded services and added telehealth capabilities') }}
+                    </p>
                 </div>
 
                 <div class="text-center">
@@ -156,8 +166,11 @@
                                 clip-rule="evenodd" />
                         </svg>
                     </div>
-                    <h3 class="text-xl font-semibold text-white dark:text-dark-text mb-2">{{ setting('history.timeline.2024.title', '2024') }}</h3>
-                    <p class="text-gray-700 dark:text-gray-300">{{ setting('history.timeline.2024.description', 'Leading primary care provider serving thousands of patients') }}</p>
+                    <h3 class="text-xl font-semibold text-white dark:text-dark-text mb-2">
+                        {{ setting('history.timeline.2024.title', '2024') }}</h3>
+                    <p class="text-gray-700 dark:text-gray-300">
+                        {{ setting('history.timeline.2024.description', 'Leading primary care provider serving thousands of patients') }}
+                    </p>
                 </div>
             </div>
         </div>
@@ -167,7 +180,8 @@
     <section class="py-16 bg-white dark:bg-dark-bg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-gray-900 dark:text-dark-text mb-4">{{ setting('services.section.title', 'Our Services') }}</h2>
+                <h2 class="text-3xl font-bold text-gray-900 dark:text-dark-text mb-4">
+                    {{ setting('services.section.title', 'Our Services') }}</h2>
                 <p class="text-lg text-gray-900 dark:text-gray-300 max-w-3xl mx-auto">
                     {{ setting('services.section.description', 'Comprehensive primary care services designed to meet all your healthcare needs.') }}
                 </p>
@@ -184,9 +198,12 @@
                                     clip-rule="evenodd" />
                             </svg>
                         </div>
-                        <h3 class="text-lg font-semibold text-gray-900 dark:text-dark-text mb-2">{{ $service->title }}</h3>
-                        <p class="text-sm text-gray-900 dark:text-gray-300">{{ Str::limit($service->description, 100) }}</p>
-                        <a href="{{ route('resources.show', $service->slug) }}" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium text-sm mt-2">
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-dark-text mb-2">{{ $service->title }}
+                        </h3>
+                        <p class="text-sm text-gray-900 dark:text-gray-300">{{ Str::limit($service->description, 100) }}
+                        </p>
+                        <a href="{{ route('resources.show', $service->slug) }}"
+                            class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium text-sm mt-2">
                             Learn More
                             <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd"
@@ -204,7 +221,8 @@
     <section class="py-16 bg-gray-50 dark:bg-gray-900">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-white dark:text-dark-text mb-4">{{ setting('team.section.title', 'Meet Our Team') }}</h2>
+                <h2 class="text-3xl font-bold text-white dark:text-dark-text mb-4">
+                    {{ setting('team.section.title', 'Meet Our Team') }}</h2>
                 <p class="text-lg text-white dark:text-gray-300 max-w-3xl mx-auto">
                     {{ setting('team.section.description', 'Our experienced healthcare professionals are dedicated to providing you with the best possible care.') }}
                 </p>
@@ -214,9 +232,10 @@
                 @foreach ($providers as $provider)
                     <div class="team-card group hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
                         <div class="relative mb-6">
-                            <img src="{{ $provider->photo_url }}"
-                                alt="{{ $provider->name }}"
-                                class="doctor-image mx-auto group-hover:scale-105 transition-transform duration-300">
+                            <div class="w-full aspect-square overflow-hidden rounded-lg">
+                                <img src="{{ $provider->photo_url }}" alt="{{ $provider->name }}"
+                                    class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+                            </div>
                             <div class="absolute -bottom-2 left-1/2 transform -translate-x-1/2">
                                 <div
                                     class="bg-gradient-to-r from-blue-500 to-purple-500 text-white px-3 py-1 rounded-full text-xs font-medium">
@@ -224,13 +243,11 @@
                                 </div>
                             </div>
                         </div>
-                        <h3 class="text-xl font-semibold text-gray-900 dark:text-dark-text mb-1">{{ $provider->name }}</h3>
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-dark-text mb-1">{{ $provider->name }}
+                        </h3>
                         <p class="text-blue-600 dark:text-blue-400 mb-3">{{ $provider->title }}</p>
-                        <p class="text-sm text-gray-700 dark:text-gray-300 mb-4">{{ Str::limit($provider->bio, 120) }}</p>
-                        <a href="{{ route('contact') }}?provider={{ $provider->id }}" 
-                           class="w-full bg-gradient-to-r from-blue-500 to-purple-500 text-white py-2 px-4 rounded-lg font-medium hover:from-blue-600 hover:to-purple-600 transition-all duration-300 inline-block text-center">
-                            Schedule Appointment
-                        </a>
+                        <p class="text-sm text-gray-700 dark:text-gray-300 mb-4">{!! Str::limit($provider->bio, 150) !!}p>
+
                     </div>
                 @endforeach
             </div>

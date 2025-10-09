@@ -114,53 +114,10 @@
         </div>
     </section>
 
-    <!-- Services Section with Modern Design -->
-    <section id="services" class="py-16 bg-white dark:bg-dark-bg">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <div
-                    class="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-medium mb-4">
-                    Our Services
-                </div>
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-dark-text mb-4">
-                    {{ setting('services.section.title', 'Our Services') }}
-                </h2>
-                <p class="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-                    {{ setting('services.section.description', 'We offer a comprehensive range of primary care services to meet your health needs.') }}
-                </p>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                @foreach ($services as $service)
-                    <div class="card group hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
-                        <div
-                            class="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd"
-                                    d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                                    clip-rule="evenodd" />
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-semibold text-gray-900 dark:text-dark-text mb-2">{{ $service->title }}</h3>
-                        <p class="text-gray-600 dark:text-gray-300">{!! Str::limit($service->description, 120) !!}</p>
-                        <div class="mt-4">
-                            <a href="{{ route('resources.show', $service->slug) }}"
-                                class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
-                                Learn More
-                                <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd"
-                                        d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                                        clip-rule="evenodd" />
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-        </div>
-    </section>
+   
 
     <!-- Team Section with Polished Doctor Cards -->
-    <section id="team" class="py-16 bg-gradient-to-br from-gray-50 to-blue-50 dark:bg-dark-bg">
+    {{-- <section id="team" class="py-16 bg-gradient-to-br from-gray-50 to-blue-50 dark:bg-dark-bg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <div
@@ -190,15 +147,12 @@
                         <h3 class="text-xl font-semibold text-gray-900 dark:text-dark-text mb-1">{{ $provider->name }}</h3>
                         <p class="text-blue-600 dark:text-blue-400 mb-3">{{ $provider->title }}</p>
                         <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">{!! Str::limit($provider->bio, 150) !!}</p>
-                        <a href="{{ route('contact') }}?provider={{ $provider->id }}"
-                            class="w-full bg-gradient-to-r from-blue-500 to-purple-500 text-white py-2 px-4 rounded-lg font-medium hover:from-blue-600 hover:to-purple-600 transition-all duration-300 inline-block text-center">
-                            Make an Appointment
-                        </a>
+                      
                     </div>
                 @endforeach
             </div>
         </div>
-    </section>
+    </section> --}}
 
     <!-- Opening Hours & Location Section -->
     <section class="py-16 bg-white dark:bg-dark-bg">
@@ -273,41 +227,6 @@
         </div>
     </section>
 
-    <!-- Resources Section with Modern Design -->
-    <section id="resources" class="py-16 bg-gradient-to-r from-blue-500 to-teal-500">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <div
-                    class="inline-flex items-center px-4 py-2 bg-white/20 text-white rounded-full text-sm font-medium mb-4">
-                    Patient Resources
-                </div>
-                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
-                    Patient Resources
-                </h2>
-                <p class="text-lg text-white/90 max-w-3xl mx-auto">
-                    Everything you need to know about our services, policies, and patient information.
-                </p>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                @foreach ($patientResources as $resource)
-                    <div
-                        class="card bg-white/90 backdrop-blur-sm group hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
-                        <h3 class="text-lg font-semibold text-gray-900 mb-2">{{ $resource->title }}</h3>
-                        <p class="text-sm text-gray-600 mb-4">{!! Str::limit(strip_tags($resource->content), 100) !!}</p>
-                        <a href="{{ route('resources.show', $resource->slug) }}"
-                            class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
-                            Learn More
-                            <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd"
-                                    d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                                    clip-rule="evenodd" />
-                            </svg>
-                        </a>
-                    </div>
-                @endforeach
-            </div>
-        </div>
-    </section>
 
 
 
