@@ -37,18 +37,19 @@
                             <img src="{{ $provider->photo_url }}" alt="{{ $provider->name }}"
                                 class="w-full h-full object-cover">
                         </div>
-                        <div class="mt-4">
-                            <span
-                                class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gradient-to-r from-blue-500 to-purple-500 text-white">
-                                {{ $provider->specialty }}
-                            </span>
-                        </div>
+
                     </div>
 
                     <!-- Provider Info -->
                     <div class="flex-1">
                         <h1 class="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2">{{ $provider->name }}</h1>
                         <p class="text-xl text-blue-600 dark:text-blue-400 mb-4">{{ $provider->title }}</p>
+                        <div class="mb-4">
+                            <span
+                                class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gradient-to-r from-blue-500 to-purple-500 text-white">
+                                {{ $provider->specialty }}
+                            </span>
+                        </div>
 
                         <!-- Contact Information -->
                         <div class="space-y-3 mb-6">
@@ -95,7 +96,7 @@
             <div class="card mb-8">
                 <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">About {{ $provider->name }}</h2>
                 <div class="rich-content text-gray-700 dark:text-gray-300">
-                    {!! nl2br(e($provider->bio)) !!}
+                    {!! $provider->bio !!}
                 </div>
             </div>
 
