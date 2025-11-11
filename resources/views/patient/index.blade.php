@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
     <!-- Resources Section with Modern Design -->
-    <section id="resources" class="py-16 bg-gradient-to-r from-blue-500 to-teal-500">
+    <section id="resources" class="py-16 bg-gradient-to-r from-blue-500 to-purple-500">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <div class="inline-flex items-center px-4 py-2 bg-white/20 text-white rounded-full text-sm font-medium mb-4">

@@ -29,7 +29,7 @@
                         <h3 class="text-xl font-semibold text-gray-900 dark:text-dark-text mb-2">{{ $service->title }}</h3>
                         <p class="text-gray-600 dark:text-gray-300">{!! Str::limit($service->description, 120) !!}</p>
                         <div class="mt-4">
-                            <a href="{{ route('resources.show', $service->slug) }}"
+                            <a href="{{ route('services.show', $service->slug) }}"
                                 class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
                                 Learn More
                                 <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20">

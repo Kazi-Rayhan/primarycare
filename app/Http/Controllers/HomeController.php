@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Models\FAQ;
 use App\Models\PatientResource;
 use App\Models\Provider;
 use App\Models\Service;
@@ -23,5 +24,10 @@ class HomeController extends Controller
     {
         $patientResources = PatientResource::active()->ordered()->get();
         return view('patient.index', compact('patientResources'));
+    }
+    public function faqs()
+    {
+        $faqs = FAQ::active()->ordered()->get();
+        return view('faqs.index', compact('faqs'));
     }
 }

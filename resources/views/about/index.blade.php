@@ -117,7 +117,7 @@
     </section>
 
     <!-- History Section -->
-    <section class="py-16 bg-gray-50 dark:bg-gray-900">
+    {{-- <section class="py-16 bg-gray-50 dark:bg-gray-900">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold text-white dark:text-dark-text mb-4">
@@ -174,10 +174,10 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
     <!-- Services Overview -->
-    <section class="py-16 bg-white dark:bg-dark-bg">
+    {{-- <section class="py-16 bg-white dark:bg-dark-bg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold text-gray-900 dark:text-dark-text mb-4">
@@ -215,7 +215,7 @@
                 @endforeach
             </div>
         </div>
-    </section>
+    </section> --}}
 
     <!-- Team Section -->
     <section class="py-16 bg-gray-50 dark:bg-gray-900">
@@ -247,7 +247,17 @@
                         </h3>
                         <p class="text-blue-600 dark:text-blue-400 mb-3">{{ $provider->title }}</p>
                         <p class="text-sm text-gray-700 dark:text-gray-300 mb-4">{!! Str::limit($provider->bio, 150) !!}</p>
-
+                        <div class="mt-4">
+                            <a href="{{ route('providers.show', $provider->id) }}"
+                                class="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-medium">
+                                View Profile
+                                <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </a>
+                        </div>
                     </div>
                 @endforeach
             </div>

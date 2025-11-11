@@ -19,9 +19,9 @@ class ContactController extends Controller
             $selectedProvider = Provider::find($request->provider);
         }
         
-        $faqs = FAQ::active()->ordered()->get();
         
-        return view('contact.index', compact('selectedProvider', 'faqs'));
+        
+        return view('contact.index', compact('selectedProvider'));
     }
 
     public function submit(Request $request)
