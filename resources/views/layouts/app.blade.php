@@ -23,6 +23,16 @@
     <!-- Vite -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17537537420"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'AW-17537537420');
+    </script>
+
     <!-- Pre-load theme and accessibility preferences -->
     <script>
         // Theme and accessibility persistence
